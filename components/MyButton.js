@@ -1,13 +1,14 @@
 import { Button } from "react-native";
 import { View, StyleSheet } from "react-native";
 
-function MyButton({title}) {
+function MyButton({title, onPress}) {
 
     return (
         <View style={styles.buttonContainer}>
             <Button 
                 color="#D78F3C"
                 title={title}
+                onPress={onPress}
             />
         </View>
         

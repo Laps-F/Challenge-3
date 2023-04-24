@@ -1,7 +1,7 @@
 import { TextInput } from "react-native";
 import { View, Image, StyleSheet } from "react-native";
 
-function MyInput({label, keyboardType, value, image}) {
+function MyInput({label, keyboardType, value, image, onUpdateValue}) {
 
     var icon;
 
@@ -26,6 +26,7 @@ function MyInput({label, keyboardType, value, image}) {
                 autoCorrect={false}
                 autoCapitalize="none"
                 keyboardType={keyboardType}
+                onChangeText={onUpdateValue}
                 value={value}
             />
         </View>
@@ -46,7 +47,9 @@ const styles = StyleSheet.create({
 
     image: {
         marginTop: 10,
-        aspectRatio: 3.0, 
+        marginHorizontal: 10,
+        height: 30,
+        width: 30,
         resizeMode: 'contain',
     },
 
