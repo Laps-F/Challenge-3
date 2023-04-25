@@ -5,8 +5,6 @@ import { View, StyleSheet } from "react-native";
 import MyButton from '../components/MyButton';
 import MyInput from '../components/MyInput';
 
-//so um coment
-
 function WelcomeScreen({navigation}) {
     const [enteredEmail, setEnteredEmail] = useState('');
     const [enteredPassword, setEnteredPassword] = useState('');
