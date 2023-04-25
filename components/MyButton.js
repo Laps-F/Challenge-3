@@ -24,8 +24,4 @@ const styles = StyleSheet.create({
         borderRadius: 150 / 2,
         overflow: "hidden",
     },
-
-    button: {
-        
-    }
 });

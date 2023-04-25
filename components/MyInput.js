@@ -1,7 +1,7 @@
 import { TextInput } from "react-native";
 import { View, Image, StyleSheet } from "react-native";
 
-function MyInput({label, keyboardType, value, image, onUpdateValue}) {
+function MyInput({label, keyboardType, value, image, onUpdateValue, error}) {
 
     var icon;
 
@@ -13,7 +13,7 @@ function MyInput({label, keyboardType, value, image, onUpdateValue}) {
         icon = require('../assets/icon_user.png');
 
     return (
-        <View style={styles.inputContainer}>
+        <View style={[styles.inputContainer, {borderWidth: error? 1 : 0, borderColor: error? 'red' : null}]}>
             <Image 
                 style={styles.image}
                 source={icon}
