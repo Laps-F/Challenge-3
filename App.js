@@ -20,10 +20,18 @@ export default function App() {
             headerShown: false
           }}
         />
-        <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
+        <Stack.Screen 
+          name="SignUpScreen" 
+          component={SignUpScreen} 
+          options={{
+            headerStyle: {backgroundColor: "#2D2D2D"},
+            title: '',
+            headerTintColor: "#D78F3C",
+          }}
+        />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
       </Stack.Navigator>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
     </NavigationContainer>
   );
 }
