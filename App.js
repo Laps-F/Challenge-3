@@ -29,7 +29,17 @@ export default function App() {
             headerTintColor: "#D78F3C",
           }}
         />
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen 
+          name="HomeScreen" 
+          component={HomeScreen} 
+          options={{
+            headerLeft: null,
+            headerStyle: {backgroundColor: "#2D2D2D"},
+            title: 'HOME',
+            headerTintColor: "#D78F3C",
+            headerShadowVisible: false,
+          }}
+        />
       </Stack.Navigator>
       <StatusBar style="light" />
     </NavigationContainer>

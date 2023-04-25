@@ -1,14 +1,54 @@
-import { Text, View } from "react-native";
+import { View, ScrollView, StyleSheet } from "react-native";
+
+import CardList from "../components/CardList";
+
+DATA = [
+    {
+        id: 1
+    },
+    {
+        id: 2
+    },
+    {
+        id: 3
+    },
+    {
+        id: 4
+    },
+    {
+        id: 5
+    },
+    {
+        id: 6
+    },
+    {
+        id: 7
+    },
+    {
+        id: 8
+    },
+
+]
 
 function HomeScreen() {
     return (
-        <View>
-            <Text>HomeScreen</Text>
-            <Text>HomeScreen</Text>
-            <Text>HomeScreen</Text>
-            <Text>HomeScreen</Text>
+        // <View style={styles.container}>
+        //     <View style={{flexDirection: 'row'}}>
+        //         <CardList cards={DATA}/>
+        //     </View>
+        // </View>
+        <View style={styles.container}>
+            <CardList cards={DATA}/>
         </View>
     );
 }
 
 export default HomeScreen;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        flexDirection: 'row',
+        backgroundColor: "#2D2D2D",
+    }
+});
