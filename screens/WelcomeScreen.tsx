@@ -5,13 +5,9 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import MyButton from '../components/MyButton';
 import MyInput from '../components/MyInput';
 
-export type RootStackParamList = {
-    HomeScreen: undefined;
-    WelcomeScreen: undefined;
-    SignUpScreen: undefined;
-};
+import { UnauthenticatedStackParams } from "../App";
 
-type Props = NativeStackScreenProps<RootStackParamList, 'WelcomeScreen'>;
+type Props = NativeStackScreenProps<UnauthenticatedStackParams, 'WelcomeScreen'>;
 
 const HEIGHT = Dimensions.get('window').height;
 const WIDTH = Dimensions.get('window').width;
@@ -72,6 +68,7 @@ function WelcomeScreen({navigation}: Props): JSX.Element {
                 label="Your Email"
                 keyboardType="email-address"
                 image="mail"
+                secureTextEntry={false}
                 value={enteredEmail}
                 onUpdateValue={updateEmailHandler}
             />
@@ -81,6 +78,7 @@ function WelcomeScreen({navigation}: Props): JSX.Element {
                 label="Your Password"
                 keyboardType="default"
                 image="lock"
+                secureTextEntry={true}
                 value={enteredPassword}
                 onUpdateValue={updatePasswordHandler}
             />
