@@ -6,10 +6,11 @@ type InputProps = {
     value: any,
     image: string,
     error: boolean,
+    secureTextEntry: boolean,
     onUpdateValue(arg: string): void,
 }
 
-function MyInput({label, keyboardType, value, image, onUpdateValue, error}: InputProps): JSX.Element {
+function MyInput({label, keyboardType, value, image, secureTextEntry, onUpdateValue, error}: InputProps): JSX.Element {
 
     var icon;
 
@@ -33,6 +34,7 @@ function MyInput({label, keyboardType, value, image, onUpdateValue, error}: Inpu
                 placeholderTextColor="#A8A8A8"
                 autoCorrect={false}
                 autoCapitalize="none"
+                secureTextEntry={secureTextEntry}
                 keyboardType={keyboardType}
                 onChangeText={onUpdateValue}
                 value={value}
