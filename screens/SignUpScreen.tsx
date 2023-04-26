@@ -1,15 +1,14 @@
 import { useState } from "react";
-import { View, StyleSheet, Pressable, Text } from "react-native";
+import { View, StyleSheet, Pressable, Text, Dimensions } from "react-native";
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import Checkbox from 'expo-checkbox';
 
-export type RootStackParamList = {
-    HomeScreen: undefined;
-    WelcomeScreen: undefined;
-    SignUpScreen: undefined;
-};
+import { UnauthenticatedStackParams } from "../App";
 
-type Props = NativeStackScreenProps<RootStackParamList, 'SignUpScreen'>;
+type Props = NativeStackScreenProps<UnauthenticatedStackParams, 'SignUpScreen'>;
+
+const HEIGHT = Dimensions.get('window').height;
+const WIDTH = Dimensions.get('window').width;
 
 import MyButton from '../components/MyButton';
 import MyInput from '../components/MyInput';
@@ -19,34 +18,76 @@ function SignUpScreen({navigation}: Props): JSX.Element {
     const [enteredPassword, setEnteredPassword] = useState('');
     const [enteredUser, setEnteredUser] = useState('');
     const [checkValue, setCheckValue] = useState(false);
-
-
+    const [mailError, setMailError] = useState(false);
+    const [passwordError, setPasswordError] = useState(false);
+    const [userError, setUserError] = useState(false);
+    const [checkError, setCheckError] = useState(false);
+    
     function updateEmailHandler(email: string) {
         setEnteredEmail(email);
+        setMailError(false);
     }
 
     function updatePasswordHandler(password: string) {
         setEnteredPassword(password);
+        setPasswordError(false);
     }
 
     function updateUserHandler(user: string){
         setEnteredUser(user);
+        setUserError(false);
     }
 
     function updateCheckValueHandler(){
-        if(checkValue === false)
+        if(checkValue === false){
             setCheckValue(true);
+            setCheckError(false);
+        }
         else
             setCheckValue(false);
     }
 
     function loginHandler() {
-        if(enteredEmail && enteredPassword && enteredUser && checkValue)
+        if(enteredEmail.length === 0)
+            setMailError(true);
+        
+        if(enteredPassword.length === 0)
+            setPasswordError(true);
+
+        if(enteredUser.length === 0)
+            setUserError(true);
+
+        if(!checkValue){
+            setCheckError(true);
+        }
+        
+        if(enteredEmail.length !== 0 && enteredPassword.length !== 0 && enteredUser.length !== 0)
             navigation.navigate("HomeScreen");
+
     }
 
     function signInHandler() {
         navigation.navigate("WelcomeScreen");
+    }
+
+    let error1;
+    if(mailError){
+        error1 = <Text style={styles.error}>Please enter a valid mail</Text>;
+    }
+
+    let error2;
+    if(userError){
+        error2 = <Text style={styles.error}>Please enter a valid username</Text>;
+    }
+
+    let error3;
+    if(passwordError){
+        error3 = <Text style={styles.error}>Please enter a valid password</Text>;
+    }
+
+    let error4;
+    if(checkError){
+        error4 = <Text style={styles.error}>Please accept the terms</Text>;
     }
 
     return (
@@ -56,31 +97,43 @@ function SignUpScreen({navigation}: Props): JSX.Element {
             </View>
             <MyInput 
                 label="Your Email"
+                error={mailError}
                 keyboardType="email-address"
                 image="mail"
+                secureTextEntry={false}
                 value={enteredEmail}
                 onUpdateValue={updateEmailHandler}
             />
+            {error1}
+
             <MyInput 
                 label="username"
+                error={userError}
                 keyboardType="default"
                 image="user"
+                secureTextEntry={false}
                 value={enteredUser}
                 onUpdateValue={updateUserHandler}
             />
+            {error2}
+
             <MyInput 
                 label="Your Password"
+                error={passwordError}
                 keyboardType="default"
                 image="lock"
+                secureTextEntry={true}
                 value={enteredPassword}
                 onUpdateValue={updatePasswordHandler}
             />
+            {error3}
+
             <View style={styles.checkBoxContainer}>
                 <Checkbox
                     value={checkValue}
                     onValueChange={updateCheckValueHandler}
                     style={styles.checkBox}
-                    color={checkValue ? '#D78F3C' : 'white'}
+                    color={checkValue ? '#D78F3C' : checkError ? 'red' : 'white'}
                 />
                 <View style={styles.checkBoxContainerText}>
                     <Text style={{color: 'white'}}>Agree to </Text>
@@ -88,9 +141,10 @@ function SignUpScreen({navigation}: Props): JSX.Element {
                         <Text style={styles.checkBoxTextLink}>Terms And Condiditions</Text>
                     </Pressable>
                 </View>
-            
             </View>
-            <MyButton title="LOGIN" onPress={loginHandler}/>
+            {error4}
+
+            <MyButton title="CREATE ACCOUNT" onPress={loginHandler}/>
             <View style={styles.footerContainer}>
                 <Text style={styles.footerText}>
                     Don't have an account?
@@ -112,7 +166,7 @@ const styles = StyleSheet.create({
     },
 
     titleContainer: {
-        marginTop: 100,
+        marginTop: 50,
         marginBottom: 100,
         alignItems: 'center',
     },
@@ -123,7 +177,9 @@ const styles = StyleSheet.create({
     },
 
     footerContainer: {
-        marginTop: 50,
+        position: 'absolute',
+        top: HEIGHT - 110, 
+        width: WIDTH,
         justifyContent: 'center',
         alignItems: 'center',
         borderTopWidth: 1,
@@ -133,6 +189,7 @@ const styles = StyleSheet.create({
     },
 
     footerText: {
+        marginVertical: 20,
         color: "white",
     },
 
@@ -160,7 +217,11 @@ const styles = StyleSheet.create({
         color: "white",
         fontWeight: 'bold',
         textDecorationLine: 'underline',
+    },
+
+    error: {
+        marginHorizontal: 20,
+        color: 'red',
+        fontSize: 10,
     }
-
-
 });
