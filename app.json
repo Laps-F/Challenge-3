@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Challenge-2",
-    "slug": "Challenge-2",
+    "name": "Challenge2",
+    "slug": "Challenge2",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
