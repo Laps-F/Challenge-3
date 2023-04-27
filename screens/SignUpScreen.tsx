@@ -4,6 +4,7 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import Checkbox from 'expo-checkbox';
 
 import { UnauthenticatedStackParams } from "../App";
+import { Colors } from "../constants/styles";
 
 type Props = NativeStackScreenProps<UnauthenticatedStackParams, 'SignUpScreen'>;
 
@@ -133,7 +134,7 @@ function SignUpScreen({navigation}: Props): JSX.Element {
                     value={checkValue}
                     onValueChange={updateCheckValueHandler}
                     style={styles.checkBox}
-                    color={checkValue ? '#D78F3C' : checkError ? 'red' : 'white'}
+                    color={checkValue ? Colors.primary : checkError ? Colors.warning : 'white'}
                 />
                 <View style={styles.checkBoxContainerText}>
                     <Text style={{color: 'white'}}>Agree to </Text>
@@ -162,7 +163,7 @@ export default SignUpScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#2D2D2D",
+        backgroundColor: Colors.background,
     },
 
     titleContainer: {
@@ -173,7 +174,7 @@ const styles = StyleSheet.create({
 
     title: {
         fontSize: 24,
-        color: "#D78F3C",
+        color: Colors.primary,
     },
 
     footerContainer: {
@@ -183,7 +184,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderTopWidth: 1,
-        borderTopColor: "#D78F3C",
+        borderTopColor: Colors.primary,
         flex: 1,
         flexDirection: 'row',
     },
@@ -194,7 +195,7 @@ const styles = StyleSheet.create({
     },
 
     footerLink: {
-        color: "#D78F3C",
+        color: Colors.primary,
         fontWeight: 'bold',
     },
 
@@ -221,7 +222,7 @@ const styles = StyleSheet.create({
 
     error: {
         marginHorizontal: 20,
-        color: 'red',
+        color: Colors.warning,
         fontSize: 10,
     }
 });
