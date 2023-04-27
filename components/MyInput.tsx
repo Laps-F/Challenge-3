@@ -1,5 +1,7 @@
 import { View, Image, StyleSheet, KeyboardTypeOptions, TextInput } from "react-native";
 
+import { Colors } from "../constants/styles";
+
 type InputProps = {
     label: string,
     keyboardType: KeyboardTypeOptions | undefined,
@@ -22,7 +24,7 @@ function MyInput({label, keyboardType, value, image, secureTextEntry, onUpdateVa
         icon = require('../assets/icon_user.png');
 
     return (
-        <View style={[styles.inputContainer, {borderWidth: error? 1 : 0, borderColor: error? 'red' : undefined}]}>
+        <View style={[styles.inputContainer, {borderWidth: error? 1 : 0, borderColor: error? Colors.warning : undefined}]}>
             <Image 
                 style={styles.image}
                 source={icon}
@@ -31,7 +33,7 @@ function MyInput({label, keyboardType, value, image, secureTextEntry, onUpdateVa
             <TextInput 
                 style={styles.input}
                 placeholder={label}
-                placeholderTextColor="#A8A8A8"
+                placeholderTextColor= {Colors.inputPlaceholder}
                 autoCorrect={false}
                 autoCapitalize="none"
                 secureTextEntry={secureTextEntry}
@@ -49,7 +51,7 @@ const styles = StyleSheet.create({
     inputContainer: {
         flexDirection: 'row',
         paddingBottom: 10,
-        backgroundColor: "#656262",
+        backgroundColor: Colors.input,
         borderRadius: 150 / 2,
         overflow: "hidden",
         margin: 10,
@@ -65,7 +67,7 @@ const styles = StyleSheet.create({
 
     input: {
         flex: 1,
-        backgroundColor: '#656262',
+        backgroundColor: Colors.input,
         marginTop: 10,
     },
 });
