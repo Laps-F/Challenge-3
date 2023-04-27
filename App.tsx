@@ -1,11 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { StyleSheet, Text, View } from 'react-native';
 
 import WelcomeScreen from './screens/WelcomeScreen';
 import SignUpScreen from './screens/SignUpScreen';
 import HomeScreen from './screens/HomeScreen';
+import { Colors } from './constants/styles';
 
 export type UnauthenticatedStackParams = {
   WelcomeScreen: undefined;
@@ -30,9 +30,9 @@ export default function App() {
           name="SignUpScreen" 
           component={SignUpScreen} 
           options={{
-            headerStyle: {backgroundColor: "#2D2D2D"},
+            headerStyle: {backgroundColor: Colors.background},
             title: '',
-            headerTintColor: "#D78F3C",
+            headerTintColor: Colors.primary,
             headerShadowVisible: false,
           }}
         />
@@ -41,9 +41,9 @@ export default function App() {
           component={HomeScreen} 
           options={{
             headerLeft: ()=> null,
-            headerStyle: {backgroundColor: "#2D2D2D"},
+            headerStyle: {backgroundColor: Colors.background},
             title: 'HOME',
-            headerTintColor: "#D78F3C",
+            headerTintColor: Colors.primary,
             headerShadowVisible: false,
           }}
         />
@@ -52,12 +52,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
