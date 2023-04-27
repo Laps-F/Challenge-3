@@ -4,6 +4,7 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import MyButton from '../components/MyButton';
 import MyInput from '../components/MyInput';
+import { Colors } from '../constants/styles';
 
 import { UnauthenticatedStackParams } from "../App";
 
@@ -101,7 +102,7 @@ export default WelcomeScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#2D2D2D",
+        backgroundColor: Colors.background,
     },
 
     titleContainer: {
@@ -112,7 +113,7 @@ const styles = StyleSheet.create({
 
     title: {
         fontSize: 24,
-        color: "#D78F3C",
+        color: Colors.primary,
     },
 
     footerContainer: {
@@ -122,7 +123,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderTopWidth: 1,
-        borderTopColor: "#D78F3C",
+        borderTopColor: Colors.primary,
         flex: 1,
         flexDirection: 'row',
     },
@@ -133,7 +134,7 @@ const styles = StyleSheet.create({
     },
 
     footerLink: {
-        color: "#D78F3C",
+        color: Colors.primary,
         fontWeight: 'bold',
     },
 
@@ -143,7 +144,7 @@ const styles = StyleSheet.create({
 
     error: {
         marginHorizontal: 20,
-        color: 'red',
+        color: Colors.warning,
         fontSize: 10,
     }
 });
