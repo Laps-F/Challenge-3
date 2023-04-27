@@ -1,16 +1,7 @@
-import { View, Image, StyleSheet, KeyboardTypeOptions, TextInput } from "react-native";
+import { View, Image, StyleSheet, TextInput } from "react-native";
 
 import { Colors } from "../constants/styles";
-
-type InputProps = {
-    label: string,
-    keyboardType: KeyboardTypeOptions | undefined,
-    value: any,
-    image: string,
-    error: boolean,
-    secureTextEntry: boolean,
-    onUpdateValue(arg: string): void,
-}
+import { InputProps } from "../types/Props";
 
 function MyInput({label, keyboardType, value, image, secureTextEntry, onUpdateValue, error}: InputProps): JSX.Element {
 

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { View, StyleSheet, Pressable, Text, Dimensions } from "react-native";
-import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import Checkbox from 'expo-checkbox';
 
-import { UnauthenticatedStackParams } from "../App";
+import { AuthenticatedStackParams } from "../types/Navigation";
 import { Colors } from "../constants/styles";
 
-type Props = NativeStackScreenProps<UnauthenticatedStackParams, 'SignUpScreen'>;
+type Props = AuthenticatedStackParams<"SignUpScreen">;
+
 
 const HEIGHT = Dimensions.get('window').height;
 const WIDTH = Dimensions.get('window').width;
