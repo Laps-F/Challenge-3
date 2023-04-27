@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { Pressable, Text, View, StyleSheet, Dimensions } from "react-native";
-import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import MyButton from '../components/MyButton';
 import MyInput from '../components/MyInput';
 import { Colors } from '../constants/styles';
 
-import { UnauthenticatedStackParams } from "../App";
+import { AuthenticatedStackParams } from "../types/Navigation";
 
-type Props = NativeStackScreenProps<UnauthenticatedStackParams, 'WelcomeScreen'>;
+type Props = AuthenticatedStackParams<"WelcomeScreen">;
 
 const HEIGHT = Dimensions.get('window').height;
 const WIDTH = Dimensions.get('window').width;

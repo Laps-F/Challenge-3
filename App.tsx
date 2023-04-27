@@ -6,12 +6,7 @@ import WelcomeScreen from './screens/WelcomeScreen';
 import SignUpScreen from './screens/SignUpScreen';
 import HomeScreen from './screens/HomeScreen';
 import { Colors } from './constants/styles';
-
-export type UnauthenticatedStackParams = {
-  WelcomeScreen: undefined;
-  SignUpScreen: undefined;
-  HomeScreen: undefined;
-}
+import { UnauthenticatedStackParams } from './types/Navigation';
 
 const Stack = createStackNavigator<UnauthenticatedStackParams>();
 
