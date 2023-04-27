@@ -1,6 +1,7 @@
 import { View, StyleSheet } from "react-native";
 
 import CardList from "../components/Cards/CardsList";
+import { Colors } from "../constants/styles";
 
 const DATA = [
     {
@@ -43,6 +44,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'row',
-        backgroundColor: "#2D2D2D",
+        backgroundColor: Colors.background,
     }
 });
