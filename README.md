@@ -9,10 +9,10 @@ The second Challenge of Compass, where the goal is to make an React Native App, 
 
 # :hammer: Functionalities
 
-- `First Functionalitie`: ![Login with Email and Password](https://user-images.githubusercontent.com/92038802/235237858-2dadb00d-8117-43c9-9812-8d7ee3439e7f.gif)
-- `Second Functionalitie`: ![Error when trying to Login](https://user-images.githubusercontent.com/92038802/235238431-8ab0955a-b3e2-484e-bfe4-663704db7681.gif)
-- `Third Functionalitie`: ![SignUp with Email, Username and Password](https://user-images.githubusercontent.com/92038802/235238910-d4182567-db32-42ae-94ba-d755b6150fd9.gif)
-- `Fourth Functionalitie`: ![Error when trying to SignUp](https://user-images.githubusercontent.com/92038802/235239333-493ac12c-bf04-4b7e-a915-89d71b1a94ee.gif)
+- `First Functionalitie`: ![Login with Email and Password](https://user-images.githubusercontent.com/92038802/235237858-2dadb00d-8117-43c9-9812-8d7ee3439e7f.gif = 250x150)
+- `Second Functionalitie`: ![Error when trying to Login](https://user-images.githubusercontent.com/92038802/235238431-8ab0955a-b3e2-484e-bfe4-663704db7681.gif = 250x150)
+- `Third Functionalitie`: ![SignUp with Email, Username and Password](https://user-images.githubusercontent.com/92038802/235238910-d4182567-db32-42ae-94ba-d755b6150fd9.gif = 250x150)
+- `Fourth Functionalitie`: ![Error when trying to SignUp](https://user-images.githubusercontent.com/92038802/235239333-493ac12c-bf04-4b7e-a915-89d71b1a94ee.gif = 250x150)
 
 # :white_check_mark: Used Tecnologies
 
