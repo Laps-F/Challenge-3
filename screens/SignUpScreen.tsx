@@ -62,7 +62,7 @@ function SignUpScreen({navigation}: Props): JSX.Element {
             setCheckError(true);
         }
         
-        if(enteredEmail.length !== 0 && enteredPassword.length !== 0 && enteredUser.length !== 0)
+        if(enteredEmail.length !== 0 && enteredPassword.length !== 0 && enteredUser.length !== 0 && checkValue)
             navigation.navigate("HomeScreen");
 
     }
@@ -71,24 +71,24 @@ function SignUpScreen({navigation}: Props): JSX.Element {
         navigation.navigate("WelcomeScreen");
     }
 
-    let error1;
+    let error1 = '';
     if(mailError){
-        error1 = <Text style={styles.error}>Please enter a valid mail</Text>;
+        error1 = 'Please enter a valid mail';
     }
 
-    let error2;
+    let error2 = '';
     if(userError){
-        error2 = <Text style={styles.error}>Please enter a valid username</Text>;
+        error2 = 'Please enter a valid username';
     }
 
-    let error3;
+    let error3 = '';
     if(passwordError){
-        error3 = <Text style={styles.error}>Please enter a valid password</Text>;
+        error3 = 'Please enter a valid password';
     }
 
-    let error4;
+    let error4 = '';
     if(checkError){
-        error4 = <Text style={styles.error}>Please accept the terms</Text>;
+        error4 = 'Please accept the terms';
     }
 
     return (
@@ -105,7 +105,7 @@ function SignUpScreen({navigation}: Props): JSX.Element {
                 value={enteredEmail}
                 onUpdateValue={updateEmailHandler}
             />
-            {error1}
+            <Text style={styles.error}>{error1}</Text>
 
             <MyInput 
                 label="username"
@@ -116,7 +116,7 @@ function SignUpScreen({navigation}: Props): JSX.Element {
                 value={enteredUser}
                 onUpdateValue={updateUserHandler}
             />
-            {error2}
+            <Text style={styles.error}>{error2}</Text>
 
             <MyInput 
                 label="Your Password"
@@ -127,7 +127,7 @@ function SignUpScreen({navigation}: Props): JSX.Element {
                 value={enteredPassword}
                 onUpdateValue={updatePasswordHandler}
             />
-            {error3}
+            <Text style={styles.error}>{error3}</Text>
 
             <View style={styles.checkBoxContainer}>
                 <Checkbox
@@ -143,7 +143,7 @@ function SignUpScreen({navigation}: Props): JSX.Element {
                     </Pressable>
                 </View>
             </View>
-            {error4}
+            <Text style={styles.error}>{error4}</Text>
 
             <MyButton title="CREATE ACCOUNT" onPress={loginHandler}/>
             <View style={styles.footerContainer}>
@@ -200,7 +200,8 @@ const styles = StyleSheet.create({
     },
 
     checkBoxContainer: {
-        margin: 20,
+        marginTop: 20,
+        marginHorizontal: 20,
         flexDirection: 'row'
     },
 
