@@ -15,7 +15,7 @@ function MyInput({label, keyboardType, value, image, secureTextEntry, onUpdateVa
         icon = require('../assets/icon_user.png');
 
     return (
-        <View style={[styles.inputContainer, {borderWidth: error? 1 : 0, borderColor: error? Colors.warning : undefined}]}>
+        <View style={[styles.inputContainer, {borderColor: error? Colors.warning : Colors.input}]}>
             <Image 
                 style={styles.image}
                 source={icon}
@@ -43,9 +43,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingBottom: 10,
         backgroundColor: Colors.input,
+        borderWidth: 1,
         borderRadius: 150 / 2,
         overflow: "hidden",
-        margin: 10,
+        marginHorizontal: 10,
+        marginTop: 10,
     },
 
     image: {
