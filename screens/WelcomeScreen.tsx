@@ -44,18 +44,14 @@ function WelcomeScreen({navigation}: Props): JSX.Element {
         navigation.navigate("SignUpScreen");
     }
 
-    let error1;
+    let error1 = '';
     if(mailError){
-        error1 =  (
-            <View style={styles.errorContainer}>
-                <Text style={styles.error}>Please enter a valid email address</Text>
-            </View>
-        );
+        error1 = 'Please enter a valid email address';
     }
 
-    let error2;
+    let error2 = '';
     if(passwordError){
-        error2 = <Text style={styles.error}>Please enter a valid password</Text>;
+        error2 = 'Please enter a valid password';
     }
 
     return (
@@ -72,7 +68,8 @@ function WelcomeScreen({navigation}: Props): JSX.Element {
                 value={enteredEmail}
                 onUpdateValue={updateEmailHandler}
             />
-            {error1}
+            <Text style={styles.error}>{error1}</Text>
+
             <MyInput 
                 error={passwordError}
                 label="Your Password"
@@ -82,7 +79,8 @@ function WelcomeScreen({navigation}: Props): JSX.Element {
                 value={enteredPassword}
                 onUpdateValue={updatePasswordHandler}
             />
-            {error2}
+            <Text style={styles.error}>{error2}</Text>
+
             <MyButton title="LOGIN" onPress={loginHandler}/>
             <View style={styles.footerContainer}>
                 <Text style={styles.footerText}>
