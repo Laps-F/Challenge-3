@@ -1,6 +1,7 @@
-import { View, StyleSheet, FlatList } from "react-native";
+import { View, FlatList } from "react-native";
 
-import Card from "./Card";
+import Card from "../Card";
+import { styles } from "./style";
 
 function CardList({cards}: any): JSX.Element {
 
@@ -21,12 +22,3 @@ function CardList({cards}: any): JSX.Element {
 }
 
 export default CardList;
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 5,
-        alignItems: 'center',
-    },  
-});
-

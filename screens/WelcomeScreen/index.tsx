@@ -1,16 +1,13 @@
 import { useState } from "react";
-import { Pressable, Text, View, StyleSheet, Dimensions } from "react-native";
+import { Pressable, Text, View, Dimensions } from "react-native";
 
-import MyButton from '../components/MyButton';
-import MyInput from '../components/MyInput';
-import { Colors } from '../constants/styles';
+import MyButton from '../../components/MyButton';
+import MyInput from '../../components/MyInput';
 
-import { AuthenticatedStackParams } from "../types/Navigation";
+import { styles } from "./style";
+import { AuthenticatedStackParams } from "../../types/Navigation";
 
 type Props = AuthenticatedStackParams<"WelcomeScreen">;
-
-const HEIGHT = Dimensions.get('window').height;
-const WIDTH = Dimensions.get('window').width;
 
 function WelcomeScreen({navigation}: Props): JSX.Element {
     const [enteredEmail, setEnteredEmail] = useState('');
@@ -95,53 +92,3 @@ function WelcomeScreen({navigation}: Props): JSX.Element {
 }
 
 export default WelcomeScreen;
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: Colors.background,
-    },
-
-    titleContainer: {
-        marginTop: 150,
-        marginBottom: 100,
-        alignItems: 'center',
-    },
-
-    title: {
-        fontSize: 24,
-        color: Colors.primary,
-    },
-
-    footerContainer: {
-        position: 'absolute',
-        top: HEIGHT - 30, 
-        width: WIDTH,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderTopWidth: 1,
-        borderTopColor: Colors.primary,
-        flex: 1,
-        flexDirection: 'row',
-    },
-
-    footerText: {
-        marginVertical: 20,
-        color: "white",
-    },
-
-    footerLink: {
-        color: Colors.primary,
-        fontWeight: 'bold',
-    },
-
-    errorContainer: {
-        justifyContent: 'flex-start',
-    },
-
-    error: {
-        marginHorizontal: 20,
-        color: Colors.warning,
-        fontSize: 10,
-    }
-});

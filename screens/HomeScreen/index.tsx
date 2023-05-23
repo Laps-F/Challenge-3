@@ -1,7 +1,7 @@
-import { View, StyleSheet } from "react-native";
+import { View } from "react-native";
 
-import CardList from "../components/Cards/CardsList";
-import { Colors } from "../constants/styles";
+import CardList from "../../components/Cards/CardsList";
+import { styles } from "./style";
 
 const DATA = [
     {
@@ -39,11 +39,3 @@ function HomeScreen() {
 }
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        flexDirection: 'row',
-        backgroundColor: Colors.background,
-    }
-});

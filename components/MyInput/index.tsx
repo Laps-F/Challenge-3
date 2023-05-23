@@ -1,7 +1,8 @@
-import { View, Image, StyleSheet, TextInput } from "react-native";
+import { View, Image, TextInput } from "react-native";
 
-import { Colors } from "../constants/styles";
-import { InputProps } from "../types/Props";
+import { Colors } from "../../constants/styles";
+import { InputProps } from "../../types/Props";
+import { styles } from "./style";
 
 function MyInput({label, keyboardType, value, image, secureTextEntry, onUpdateValue, error}: InputProps): JSX.Element {
 
@@ -38,29 +39,3 @@ function MyInput({label, keyboardType, value, image, secureTextEntry, onUpdateVa
 
 export default MyInput;
 
-const styles = StyleSheet.create({
-    inputContainer: {
-        flexDirection: 'row',
-        paddingBottom: 10,
-        backgroundColor: Colors.input,
-        borderWidth: 1,
-        borderRadius: 150 / 2,
-        overflow: "hidden",
-        marginHorizontal: 10,
-        marginTop: 10,
-    },
-
-    image: {
-        marginTop: 10,
-        marginHorizontal: 10,
-        height: 30,
-        width: 30,
-        resizeMode: 'contain',
-    },
-
-    input: {
-        flex: 1,
-        backgroundColor: Colors.input,
-        marginTop: 10,
-    },
-});
