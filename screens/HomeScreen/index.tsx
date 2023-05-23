@@ -30,8 +30,6 @@ const DATA = [
     },
 ]
 
-//aaaaaaaaaaaaaaa
-
 function HomeScreen() {
     return (
         <View style={styles.container}>

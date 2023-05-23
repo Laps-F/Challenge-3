@@ -6,6 +6,7 @@ import MyInput from '../../components/MyInput';
 
 import { styles } from "./style";
 import { AuthenticatedStackParams } from "../../types/Navigation";
+import { Colors } from "../../constants/styles";
 
 type Props = AuthenticatedStackParams<"WelcomeScreen">;
 
@@ -78,7 +79,7 @@ function WelcomeScreen({navigation}: Props): JSX.Element {
             />
             <Text style={styles.error}>{error2}</Text>
 
-            <MyButton title="LOGIN" onPress={loginHandler}/>
+            <MyButton title="LOGIN" onPress={loginHandler} color={Colors.primary}/>
             <View style={styles.footerContainer}>
                 <Text style={styles.footerText}>
                     Don't have an account?
