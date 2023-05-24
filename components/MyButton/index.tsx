@@ -1,15 +1,14 @@
 import { View, Button } from "react-native";
 
-import { Colors } from "../../constants/styles";
 import { ButtonProps } from "../../types/Props";
 import { styles } from "./style";
 
-function MyButton({title, onPress}: ButtonProps): JSX.Element {
+function MyButton({title, onPress, style, color}: ButtonProps): JSX.Element {
 
     return (
-        <View style={styles.buttonContainer}>
+        <View style={[styles.buttonContainer, style]}>
             <Button 
-                color= {Colors.primary}
+                color={color}
                 title={title}
                 onPress={onPress}
             />

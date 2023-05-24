@@ -5,7 +5,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import WelcomeScreen from './screens/WelcomeScreen';
 import SignUpScreen from './screens/SignUpScreen';
 import HomeScreen from './screens/HomeScreen';
-import { Colors } from './constants/styles';
+import DetailProductScreen from './screens/DetailProductScreen';
+
+import { Colors, NewColors } from './constants/styles';
+
 import { UnauthenticatedStackParams } from './types/Navigation';
 
 const Stack = createStackNavigator<UnauthenticatedStackParams>();
@@ -38,6 +41,16 @@ export default function App() {
             headerLeft: ()=> null,
             headerStyle: {backgroundColor: Colors.background},
             title: 'HOME',
+            headerTintColor: Colors.primary,
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen 
+          name="DetailProductScreen"
+          component={DetailProductScreen}
+          options={{
+            headerStyle: {backgroundColor: NewColors.background},
+            title: '',
             headerTintColor: Colors.primary,
             headerShadowVisible: false,
           }}
