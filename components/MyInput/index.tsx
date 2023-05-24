@@ -9,11 +9,11 @@ function MyInput({label, keyboardType, value, image, secureTextEntry, onUpdateVa
     var icon;
 
     if(image === 'mail')
-        icon = require('../assets/icon_mail.png');
+        icon = require('../../assets/icon_mail.png');
     if(image === 'lock')
-        icon = require('../assets/icon_lock.png');
+        icon = require('../../assets/icon_lock.png');
     if(image === 'user')
-        icon = require('../assets/icon_user.png');
+        icon = require('../../assets/icon_user.png');
 
     return (
         <View style={[styles.inputContainer, {borderColor: error? Colors.warning : Colors.input}]}>
