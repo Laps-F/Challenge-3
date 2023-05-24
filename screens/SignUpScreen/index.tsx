@@ -142,7 +142,7 @@ function SignUpScreen({navigation}: Props): JSX.Element {
             </View>
             <Text style={styles.error}>{error4}</Text>
 
-            <MyButton title="CREATE ACCOUNT" onPress={loginHandler}/>
+            <MyButton title="CREATE ACCOUNT" onPress={loginHandler} color={Colors.primary}/>
             <View style={styles.footerContainer}>
                 <Text style={styles.footerText}>
                     Don't have an account?

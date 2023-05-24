@@ -1,4 +1,4 @@
-import { KeyboardTypeOptions } from "react-native";
+import { KeyboardTypeOptions, ViewStyle } from "react-native";
 
 export type InputProps = {
     label: string,
@@ -13,4 +13,6 @@ export type InputProps = {
 export type ButtonProps = {
     title: string,
     onPress(): void,
+    style?: ViewStyle,
+    color?: string,
 }
