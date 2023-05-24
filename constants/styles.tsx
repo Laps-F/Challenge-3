@@ -11,7 +11,7 @@ export const NewColors = {
     primary: "#D78F3C",
     warning: "#FF4B4B",
     background: "#282729",
-    cardProduct: "#3C3C3E",
+    cardProduct: "#FFFFFF",
     input: "#656262",
     inputPlaceholder: "#A8A8A8",
 }
