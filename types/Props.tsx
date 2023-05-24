@@ -15,4 +15,5 @@ export type ButtonProps = {
     onPress(): void,
     style?: ViewStyle,
     color?: string,
+    load?: boolean,
 }
