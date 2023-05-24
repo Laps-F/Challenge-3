@@ -29,7 +29,6 @@ export const styles = StyleSheet.create({
     },
 
     buttonAdd: {
-        flex: 1,
         width: "50%",
         borderRadius: 10,        
         backgroundColor: NewColors.buttonBuy_Add,
@@ -46,7 +45,6 @@ export const styles = StyleSheet.create({
     },
 
     card: {
-        flex: 1,
         marginVertical: 20,
         marginHorizontal: 15,
     },
@@ -60,7 +58,6 @@ export const styles = StyleSheet.create({
     },
 
     imageContainer: {
-        flex: 1,
         alignItems: 'center',
     },
 
@@ -73,5 +70,17 @@ export const styles = StyleSheet.create({
     priceAndCount: {
         flexDirection: 'row',
         alignSelf: "flex-start",
-    }
+        marginVertical: 10,
+    },
+
+    count: {
+        fontWeight: "bold",
+        fontSize: 40,
+        color: NewColors.primary,
+    },
+
+    description: {
+        marginTop: -100,
+        marginHorizontal: 20,
+    },
 });

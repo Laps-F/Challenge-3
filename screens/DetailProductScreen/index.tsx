@@ -27,7 +27,7 @@ function DetailProductScreen(): JSX.Element {
         id: 1,
         title: "Teste",
         price: 300,
-        description: "Just a ramdom text",
+        description: "Just a ramdom text jnd ad vsdv sdkvs odvaa oamkdv odssdmv odosmdv sdvosmv osdomsdv osdomsdv osdvs",
         image: require("../../assets/icon.png"),
         rating: {
             rate: 4,
@@ -62,15 +62,18 @@ function DetailProductScreen(): JSX.Element {
                                 style={styles.buttonPrice} 
                                 color={NewColors.background}
                             />
-                            <PlusButton />
-
-
-                        </View>
-                        
+                            <View style={[styles.priceAndCount, {marginLeft: 10, marginRight: -5}]}>
+                                <PlusButton icon="-"/>
+                                <Text style={styles.count}>{prod.rating.count}</Text>
+                                <PlusButton icon="+"/>
+                            </View>
+                        </View>    
                     </View>
                 </View>
-
-
+                
+                <View style={styles.description}>
+                    <Text>{prod.description}</Text>
+                </View>
 
                 <View style={styles.buttonContainer}>
                     <MyButton 
