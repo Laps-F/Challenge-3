@@ -1,13 +1,19 @@
-import { Text, View } from "react-native";
+import { useState } from "react";
+import { Text, View, ActivityIndicator } from "react-native";
 import MyButton from "../../components/MyButton";
 import { NewColors } from "../../constants/styles";
 
 import { styles } from "./style";
 
 function DetailProductScreen() {
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
-    function Test(){
+    function addToCartHandler(){
+        setIsLoading(true);
 
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 3000);
     }
 
     return (
@@ -15,7 +21,13 @@ function DetailProductScreen() {
             <View style={styles.card}>
 
                 <View style={styles.buttonContainer}>
-                    <MyButton title="ADD TO CART" onPress={Test} style={styles.button} color={NewColors.buttonBuy_Add}/>
+                    <MyButton 
+                        title="ADD TO CART" 
+                        onPress={addToCartHandler} 
+                        style={styles.button} 
+                        color={NewColors.buttonBuy_Add}
+                        load={isLoading} 
+                    />
                 </View>
             </View>
         </View>
