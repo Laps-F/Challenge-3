@@ -5,6 +5,7 @@ export type UnauthenticatedStackParams = {
     SignUpScreen: undefined;
     HomeScreen: undefined;
     DetailProductScreen: undefined;
+    ShoppingCartScreen: undefined;
 }
 
 export type AuthenticatedStackParams<str1 extends keyof UnauthenticatedStackParams> = NativeStackScreenProps<UnauthenticatedStackParams, str1>;
