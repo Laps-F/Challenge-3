@@ -1,12 +1,39 @@
 import { useState } from "react";
-import { Text, View, Image } from "react-native";
-import MyButton from "../../components/MyButton";
-import { NewColors } from "../../constants/styles";
+import { Text, View, Image, ImageSourcePropType } from "react-native";
 
+import MyButton from "../../components/MyButton";
+import PlusButton from "../../components/PlusButton";
+import Rating from "../../components/Rating";
+
+import { NewColors } from "../../constants/styles";
 import { styles } from "./style";
 
-function DetailProductScreen() {
+interface Product {
+    id: number;
+    title: string;
+    price: number;
+    description: string;
+    image: ImageSourcePropType;
+    rating: {
+        rate: number;
+        count: number;
+    };
+}
+
+function DetailProductScreen(): JSX.Element {
     const [isLoading, setIsLoading] = useState<boolean>(false);
+
+    const prod: Product = {
+        id: 1,
+        title: "Teste",
+        price: 300,
+        description: "Just a ramdom text",
+        image: require("../../assets/icon.png"),
+        rating: {
+            rate: 4,
+            count: 2,
+        }
+    };
 
     function addToCartHandler(){
         setIsLoading(true);
@@ -24,23 +51,19 @@ function DetailProductScreen() {
         <View style={styles.root}>
             <View style={styles.cardContainer}>
                 <View style={styles.card}>
-                    <Text style={styles.title}>Title of the product</Text>
+                    <Text style={styles.title}>{prod.title}</Text>
                     <View style={styles.imageContainer}>
-                        <Image source={require('../../assets/icon.png')} style={styles.image}/>
-                        <Text style={styles.rating}>Rating</Text>
+                        <Image source={prod.image} style={styles.image}/>
+                        <Rating />  
                         <View style={styles.priceAndCount}>
                             <MyButton 
-                                title="R$ 300,00" 
+                                title= {"R$ " + prod.price.toString() + ",00"}
                                 onPress={test}
                                 style={styles.buttonPrice} 
                                 color={NewColors.background}
                             />
-                            <MyButton 
-                                title="R$ 300,00" 
-                                onPress={test}
-                                style={styles.buttonPrice} 
-                                color={NewColors.background}
-                            />
+                            <PlusButton />
+
 
                         </View>
                         

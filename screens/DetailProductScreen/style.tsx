@@ -37,10 +37,10 @@ export const styles = StyleSheet.create({
 
     buttonPrice: {
         width: "45%",
-        height: "14%",
+        height: "65%",
         borderRadius: 10,     
         backgroundColor: NewColors.background,
-        justifyContent: "flex-start",
+        alignItems: "center",
         marginHorizontal: 0,
         marginLeft: 'auto'
     },
@@ -52,7 +52,11 @@ export const styles = StyleSheet.create({
     },
 
     title: {
-        color: "white",
+        fontWeight: "bold",
+    },
+
+    head: {
+        flexDirection: "row",
     },
 
     imageContainer: {
@@ -66,13 +70,8 @@ export const styles = StyleSheet.create({
         height: "40%",
     },
 
-    rating: {
-        alignSelf: 'flex-start',
-        color: 'white',
-    },
-
     priceAndCount: {
-        flex: 1,
         flexDirection: 'row',
+        alignSelf: "flex-start",
     }
 });
