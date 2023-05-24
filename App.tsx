@@ -60,6 +60,7 @@ export default function App() {
           name="ShoppingCartScreen"
           component={ShoppingCartScreen}
           options={{
+            headerLeft: ()=> null,
             headerStyle: {backgroundColor: NewColors.background},
             title: '',
             headerTintColor: Colors.primary,
