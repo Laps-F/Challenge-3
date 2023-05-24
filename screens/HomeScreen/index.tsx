@@ -4,21 +4,12 @@ import axios from "axios";
 
 import stylesProductList from "./style";
 import Card from "../../components/Cards/Card";
+import ProductInterface from "../../types/ProductInterface";
 
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  image: string;
-  rating: {
-    rate: number;
-    count: number;
-  };
-}
+
 
 const HomeScreen: React.FC = () => {
-  const [productData, setProductData] = useState<Product[]>([]);
+  const [productData, setProductData] = useState<ProductInterface[]>([]);
 
   useEffect(() => {
     fetchDataAPI();
@@ -26,18 +17,18 @@ const HomeScreen: React.FC = () => {
 
   const fetchDataAPI = async () => {
     try {
-      const response = await axios.get<Product[]>("https://fakestoreapi.com/products/");
+      const response = await axios.get<ProductInterface[]>("https://fakestoreapi.com/products/");
       setProductData(response.data);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const handleCardPress = (product: Product) => {
+  const handleCardPress = (product: ProductInterface) => {
     console.log("Card pressed:", product);
   };
 
-  const renderProduct = ({ item }: { item: Product }) => (
+  const renderProduct = ({ item }: { item: ProductInterface }) => (
     <View key={item.id} style={stylesProductList.productContainer}>
       <Card
         title={item.title}
