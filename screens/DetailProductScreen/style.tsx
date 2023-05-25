@@ -2,6 +2,8 @@ import { StyleSheet, Dimensions } from "react-native";
 import { NewColors } from "../../constants/styles";
 
 const HEIGHT = Dimensions.get('window').height;
+const WIDTH = Dimensions.get('window').width;
+
 
 export const styles = StyleSheet.create({
     root: {
@@ -49,6 +51,10 @@ export const styles = StyleSheet.create({
         marginHorizontal: 15,
     },
 
+    titleContainer: {
+        marginRight: 65,
+    },
+
     title: {
         fontWeight: "bold",
     },
@@ -89,5 +95,10 @@ export const styles = StyleSheet.create({
         marginHorizontal: 40,
         marginBottom: -25,
         marginTop: 0,
+    },
+
+    favorite: {
+        marginLeft: WIDTH - 140,
+        position: "absolute",
     }
 });
