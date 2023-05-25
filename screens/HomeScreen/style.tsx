@@ -41,13 +41,7 @@ const stylesProductList = StyleSheet.create({
       marginBottom: 10,
     },
     
-
-    productImage: {
-      width: "100%",
-      height: "70%",
-      marginBottom: 5,
-    },
-  
+    
     tabBar: {
       height: 60,
     },
