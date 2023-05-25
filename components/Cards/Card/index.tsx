@@ -4,17 +4,15 @@ import Icon from "react-native-vector-icons/Ionicons";
 
 
 import styles from "./style";
+import ProductInterface from "../../../types/ProductInterface";
 
 interface CardProps {
-  title: string;
-  image: string;
-  price: number;
-  isFavorite: boolean;
+  product: ProductInterface;
   onPress?: () => void;
 }
 
-const Card: React.FC<CardProps> = ({ title, image, price, isFavorite, onPress }) => {
-  const [isFavoritePressed, setIsFavoritePressed] = useState(false);
+const Card: React.FC<CardProps> = ({ product, onPress }) => {
+  const [isFavoritePressed, setIsFavoritePressed] = useState<boolean>(false);
   
   const handleFavoritePress = () => {
     setIsFavoritePressed(!isFavoritePressed);
@@ -23,9 +21,9 @@ const Card: React.FC<CardProps> = ({ title, image, price, isFavorite, onPress })
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.cardProduct}>
-        <Text style={styles.title}>{title}</Text>
-        <Image source={{ uri: image }} style={styles.productImage} resizeMode="contain"/>
-        <Text style={styles.price}>{price}</Text>
+        <Text style={styles.title}>{product.title}</Text>
+        <Image source={{ uri: product.image }} style={styles.productImage} resizeMode="contain"/>
+        <Text style={styles.price}>{product.price}</Text>
         <View style={styles.favoriteIconContainer}>
       <TouchableOpacity onPress={handleFavoritePress}>
           <Icon

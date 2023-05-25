@@ -8,8 +8,6 @@ import stylesProductList from "./style";
 import Card from "../../components/Cards/Card";
 import ProductInterface from "../../types/ProductInterface";
 
-
-
 const HomeScreen: React.FC = () => {
   const [productData, setProductData] = useState<ProductInterface[]>([]);
   const navigation = useNavigation();
@@ -29,16 +27,17 @@ const HomeScreen: React.FC = () => {
   };
 
   const handleCardPress = (product: ProductInterface) => {
-  navigation.navigate("DetailProductScreen", { product, isFavoritePressed: product.isFavorite});
-  };
+  navigation.navigate("DetailProductScreen", { 
+    product, 
+    description: product.description,
+    isFavoritePressed: product.isFavorite,
+  });
+};
 
   const renderProduct = ({ item }: { item: ProductInterface }) => (
     <View key={item.id} style={stylesProductList.productContainer}>
       <Card
-        title={item.title}
-        image={item.image}
-        price={item.price}
-        isFavorite={item.isFavorite}
+        product={item}
         onPress={() => handleCardPress(item)}
       />
     </View>
