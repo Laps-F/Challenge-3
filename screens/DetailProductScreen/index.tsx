@@ -22,6 +22,7 @@ interface Product {
 
 function DetailProductScreen(): JSX.Element {
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [numItems, setNumItems] = useState<number>(0);
 
     const prod: Product = {
         id: 1,
@@ -47,6 +48,15 @@ function DetailProductScreen(): JSX.Element {
 
     }
 
+    function AddItems(){
+        setNumItems((currentNumItems) => currentNumItems + 1);
+    }
+
+    function SubItems(){
+        if(numItems > 0)
+            setNumItems((currentNumItems) => currentNumItems - 1);
+    }
+
     return (
         <View style={styles.root}>
             <View style={styles.cardContainer}>
@@ -63,9 +73,9 @@ function DetailProductScreen(): JSX.Element {
                                 color={NewColors.background}
                             />
                             <View style={[styles.priceAndCount, {marginLeft: 10, marginRight: -5}]}>
-                                <PlusButton icon="-"/>
-                                <Text style={styles.count}>{prod.rating.count}</Text>
-                                <PlusButton icon="+"/>
+                                <PlusButton icon="-" onPress={SubItems}/>
+                                <Text style={styles.count}>{numItems}</Text>
+                                <PlusButton icon="+" onPress={AddItems}/>
                             </View>
                         </View>    
                     </View>
