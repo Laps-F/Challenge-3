@@ -50,7 +50,7 @@ export default function App() {
           name="DetailProductScreen"
           component={DetailProductScreen}
           options={{
-            headerStyle: {backgroundColor: NewColors.background},
+            headerStyle: {backgroundColor: NewColors.background, height: 50},
             title: '',
             headerTintColor: Colors.primary,
             headerShadowVisible: false,
