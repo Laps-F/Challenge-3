@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Text, View, Image, ImageSourcePropType } from "react-native";
+import { Text, View, Image, ImageSourcePropType, Alert } from "react-native";
 
 import MyButton from "../../components/MyButton";
 import PlusButton from "../../components/PlusButton";
@@ -41,7 +41,9 @@ function DetailProductScreen(): JSX.Element {
 
         setTimeout(() => {
             setIsLoading(false);
+            Alert.alert("Good!", "Product added to cart.");
         }, 3000);
+
     }
 
     function test(){
