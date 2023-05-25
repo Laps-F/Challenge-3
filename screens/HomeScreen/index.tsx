@@ -34,6 +34,7 @@ const HomeScreen: React.FC = () => {
         title={item.title}
         image={item.image}
         price={item.price}
+        isFavorite={item.isFavorite}
         onPress={() => handleCardPress(item)}
       />
     </View>

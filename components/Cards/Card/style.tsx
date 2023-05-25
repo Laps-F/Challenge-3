@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 16,
     alignItems: "center",
+    position: "relative"
   },
   title: {
     fontSize: 16,
@@ -31,6 +32,14 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 14,
     fontWeight: "bold",
+  },
+
+  favoriteIcon: {
+    //position: "absolute",
+    //bottom: 50,
+    //right: -100,
+    width: 24, // Defina a largura desejada
+    height: 24, // Defina a altura desejada
   },
 });
 
