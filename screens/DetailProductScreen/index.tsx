@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Text, View, Image, ImageSourcePropType, Alert } from "react-native";
+import { Text, View, Image, ImageSourcePropType, Alert, Pressable } from "react-native";
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 import MyButton from "../../components/MyButton";
 import PlusButton from "../../components/PlusButton";
@@ -7,6 +8,9 @@ import Rating from "../../components/Rating";
 
 import { NewColors } from "../../constants/styles";
 import { styles } from "./style";
+import { AuthenticatedStackParams } from "../../types/Navigation";
+
+type Props = AuthenticatedStackParams<"DetailProductScreen">;
 
 interface Product {
     id: number;
@@ -20,7 +24,7 @@ interface Product {
     };
 }
 
-function DetailProductScreen(): JSX.Element {
+function DetailProductScreen({navigation}: Props): JSX.Element {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [numItems, setNumItems] = useState<number>(0);
 
@@ -50,6 +54,10 @@ function DetailProductScreen(): JSX.Element {
 
     }
 
+    function cartHandler(){
+        navigation.navigate("ShoppingCartScreen");
+    }
+
     function AddItems(){
         setNumItems((currentNumItems) => currentNumItems + 1);
     }
@@ -61,6 +69,9 @@ function DetailProductScreen(): JSX.Element {
 
     return (
         <View style={styles.root}>
+            <Pressable style={styles.shopButton} onPress={cartHandler}>
+                <Ionicons name="cart-outline" size={40} color={NewColors.primary} />
+            </Pressable>
             <View style={styles.cardContainer}>
                 <View style={styles.card}>
                     <Text style={styles.title}>{prod.title}</Text>
