@@ -64,7 +64,7 @@ export const styles = StyleSheet.create({
     image: {
         margin: 15,
         width: "100%",
-        height: "40%",
+        height: "55%",
     },
 
     priceAndCount: {
@@ -83,4 +83,11 @@ export const styles = StyleSheet.create({
         marginTop: -100,
         marginHorizontal: 20,
     },
+
+    shopButton: {
+        alignSelf: "flex-end",
+        marginHorizontal: 40,
+        marginBottom: -25,
+        marginTop: 0,
+    }
 });
