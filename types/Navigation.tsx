@@ -6,7 +6,7 @@ export type UnauthenticatedStackParams = {
     WelcomeScreen: undefined;
     SignUpScreen: undefined;
     HomeScreen: undefined;
-    DetailProductScreen: undefined;
+    DetailProductScreen: ProductInterface;
     ShoppingCartScreen: ProductInterface[];
 }
 
