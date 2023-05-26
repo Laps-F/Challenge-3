@@ -1,13 +1,19 @@
 import { Text, View } from "react-native";
 import MyButton from "../../components/MyButton";
 import { NewColors } from "../../constants/styles";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart } from "../../redux/reducers";
+import { CartState } from "../../redux/reducers";
+
 
 import { styles } from "./style";
 
 function ShoppingCartScreen() {
 
-    function Test() {
+    const cartItems = useSelector((state: CartState) => state.cartItems);
 
+    function Test() {
+        console.log(cartItems);
     }
 
     return (
