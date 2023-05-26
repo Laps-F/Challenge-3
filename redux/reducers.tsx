@@ -4,3 +4,7 @@ import ProductInterface from '../types/ProductInterface';
 export interface CartState {
     cartItems: ProductInterface[];
 }
+
+const initialState: CartState = {
+    cartItems: [],
+};
