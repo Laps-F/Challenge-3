@@ -65,12 +65,16 @@ export const styles = StyleSheet.create({
 
     imageContainer: {
         alignItems: 'center',
+        width: "100%",
+        height: "80%",
     },
 
     image: {
-        margin: 15,
-        width: "100%",
-        height: "55%",
+        margin: 15, 
+        flex: 1,
+        width: "80%",
+        height: 1,
+        resizeMode: 'contain'
     },
 
     priceAndCount: {
