@@ -1,4 +1,4 @@
-interface Product {
+interface ProductInterface {
     id: number;
     title: string;
     price: number;
@@ -8,6 +8,7 @@ interface Product {
       rate: number;
       count: number;
     };
+    isFavorite: boolean;
   }
   
-  export default Product;
+  export default ProductInterface;
