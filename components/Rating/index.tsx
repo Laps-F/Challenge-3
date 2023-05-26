@@ -6,7 +6,6 @@ import { StarRatingProps } from "../../types/Props";
 
 function StarRating({rate} : StarRatingProps) {
 
-    console.log(rate);
     return (
         <View style={styles.root}>
             <Rating
