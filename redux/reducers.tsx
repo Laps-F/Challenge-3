@@ -1,4 +1,4 @@
-import { Reducer } from 'redux';
+import { createSlice, PayloadAction, Slice } from '@reduxjs/toolkit';
 import ProductInterface from '../types/ProductInterface';
 
 export interface CartState {
@@ -9,16 +9,15 @@ const initialState: CartState = {
     cartItems: [],
 };
 
-const cartReducer: Reducer<CartState> = (state = initialState, action) => {
-    switch (action.type) {
-        case 'ADD_TO_CART':
-            return {
-                ...state,
-                cartItems: [...state.cartItems, action.payload],
-            };
-        default:
-            return state;
-    }
-};
+const cartSlice: Slice<CartState> = createSlice({
+    name: 'cart',
+    initialState,
+    reducers: {
+        addToCart: (state, action: PayloadAction<ProductInterface>) => {
+            state.cartItems.push(action.payload);
+        },
+    },
+});
 
-export default cartReducer;
+export const { addToCart } = cartSlice.actions;
+export default cartSlice.reducer;
