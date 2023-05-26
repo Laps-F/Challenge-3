@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, Pressable } from "react-native";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
+import Ionicons from '@expo/vector-icons/Ionicons';
+
 
 
 import stylesProductList from "./style";
+import { NewColors } from "../../constants/styles";
 import Card from "../../components/Cards/Card";
 import ProductInterface from "../../types/ProductInterface";
 
@@ -26,6 +29,10 @@ const HomeScreen: React.FC = () => {
     }
   };
 
+  function cartHandler () {
+    navigation.navigate("ShoppingCartScreen");
+  }
+
   const handleCardPress = (product: ProductInterface) => {
   navigation.navigate("DetailProductScreen", { product });
 };
@@ -44,6 +51,9 @@ const HomeScreen: React.FC = () => {
       <View style={stylesProductList.userWelcome}>
         <Text style={stylesProductList.welcome}>Welcome</Text>
         <Text style={stylesProductList.userName}>Compass</Text>
+        <Pressable style={stylesProductList.shopButton} onPress={cartHandler}>
+          <Ionicons name="cart-outline" size={40} color={NewColors.primary} />
+        </Pressable>
       </View>
       <View style={stylesProductList.scrollViewContainer}>
         <FlatList
