@@ -10,21 +10,35 @@ import { styles } from "./style";
 
 function ShoppingCartScreen() {
 
-    const cartItems = useSelector((state: CartState) => state.cartItems);
+    const cartItems = useSelector((state: { cart: CartState }) => state.cart.cartItems);
 
     function Test() {
         console.log(cartItems);
     }
 
+
     return (
         <View style={styles.root}>
+
             <View>
                 <View style={styles.totalPriceContainer}>
                     <Text style={styles.totalText}>TOTAL</Text>
                     <Text style={styles.totalValue}>R$ 00,00</Text>
                 </View>
+                <View>
+                    {cartItems.length === 0 ? (
+                        <Text style={styles.totalText}>Ops, Empty Cart :( Add a product</Text>
+                    ) : (
+                        <Text style={styles.totalText}>Has products here</Text>
+                    )}
+                </View>
                 <View style={styles.buttonContainer}>
-                    <MyButton title="BUY" onPress={Test} style={styles.button} color={NewColors.buttonBuy_Add} />
+                    <MyButton
+                        title="BUY"
+                        onPress={Test}
+                        style={styles.button}
+                        color={NewColors.buttonBuy_Add}
+                    />
                 </View>
             </View>
         </View>
