@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, FlatList } from "react-native";
 import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
+
 
 import stylesProductList from "./style";
 import Card from "../../components/Cards/Card";
 import ProductInterface from "../../types/ProductInterface";
 
-
-
 const HomeScreen: React.FC = () => {
   const [productData, setProductData] = useState<ProductInterface[]>([]);
+  const navigation = useNavigation();
+
 
   useEffect(() => {
     fetchDataAPI();
@@ -25,15 +27,17 @@ const HomeScreen: React.FC = () => {
   };
 
   const handleCardPress = (product: ProductInterface) => {
-    console.log("Card pressed:", product);
-  };
+  navigation.navigate("DetailProductScreen", { 
+    product, 
+    description: product.description,
+    isFavoritePressed: product.isFavorite,
+  });
+};
 
   const renderProduct = ({ item }: { item: ProductInterface }) => (
     <View key={item.id} style={stylesProductList.productContainer}>
       <Card
-        title={item.title}
-        image={item.image}
-        price={item.price}
+        product={item}
         onPress={() => handleCardPress(item)}
       />
     </View>
