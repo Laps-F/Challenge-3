@@ -27,11 +27,7 @@ const HomeScreen: React.FC = () => {
   };
 
   const handleCardPress = (product: ProductInterface) => {
-  navigation.navigate("DetailProductScreen", { 
-    product, 
-    description: product.description,
-    isFavoritePressed: product.isFavorite,
-  });
+  navigation.navigate("DetailProductScreen", { product });
 };
 
   const renderProduct = ({ item }: { item: ProductInterface }) => (

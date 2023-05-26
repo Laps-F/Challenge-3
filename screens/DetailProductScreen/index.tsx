@@ -12,34 +12,12 @@ import { AuthenticatedStackParams } from "../../types/Navigation";
 
 type Props = AuthenticatedStackParams<"DetailProductScreen">;
 
-interface Product {
-    id: number;
-    title: string;
-    price: number;
-    description: string;
-    image: ImageSourcePropType;
-    rating: {
-        rate: number;
-        count: number;
-    };
-}
-
-function DetailProductScreen({navigation}: Props): JSX.Element {
+function DetailProductScreen({route, navigation}: Props): JSX.Element {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [numItems, setNumItems] = useState<number>(0);
     const [favorite, setFavorite] = useState<boolean>(false);
 
-    const prod: Product = {
-        id: 1,
-        title: "Teste akvk just to be bigger title than I need aha aosm cidm vism",
-        price: 300,
-        description: "Just a ramdom text jnd ad vsdv sdkvs odvaa oamkdv odssdmv odosmdv sdvosmv osdomsdv osdomsdv osdvs",
-        image: require("../../assets/icon.png"),
-        rating: {
-            rate: 4,
-            count: 2,
-        }
-    };
+    const {product}= route.params!;
 
     function addToCartHandler(){
         setIsLoading(true);
@@ -84,18 +62,18 @@ function DetailProductScreen({navigation}: Props): JSX.Element {
                 <View style={styles.card}>
                     <View style={styles.head}>
                         <View style={styles.titleContainer}>
-                            <Text style={styles.title}>{prod.title}</Text>
+                            <Text style={styles.title}>{product.title}</Text>
                         </View>
                         <Pressable style={styles.favorite} onPress={favoriteHandler}>
                             <Ionicons name={favorite ? "heart" : "heart-outline"} size={40} color={NewColors.background} />
                         </Pressable>
                     </View>
                     <View style={styles.imageContainer}>
-                        <Image source={prod.image} style={styles.image}/>
+                        <Image source={{uri: product.image}} style={styles.image}/>
                         <Rating />  
                         <View style={styles.priceAndCount}>
                             <MyButton 
-                                title= {"R$ " + prod.price.toString() + ",00"}
+                                title= {"R$ " + product.price + ",00"}
                                 onPress={test}
                                 style={styles.buttonPrice} 
                                 color={NewColors.background}
@@ -110,7 +88,7 @@ function DetailProductScreen({navigation}: Props): JSX.Element {
                 </View>
                 
                 <View style={styles.description}>
-                    <Text>{prod.description}</Text>
+                    <Text>{product.description}</Text>
                 </View>
 
                 <View style={styles.buttonContainer}>
