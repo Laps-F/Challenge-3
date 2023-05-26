@@ -2,6 +2,8 @@ import { StyleSheet, Dimensions } from "react-native";
 import { NewColors } from "../../constants/styles";
 
 const HEIGHT = Dimensions.get('window').height;
+const WIDTH = Dimensions.get('window').width;
+
 
 export const styles = StyleSheet.create({
     root: {
@@ -9,7 +11,7 @@ export const styles = StyleSheet.create({
         backgroundColor: NewColors.background,
     },
 
-    card: {
+    cardContainer: {
         flex: 1,
         margin: 35,
         width: "80%",
@@ -28,10 +30,75 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
     },
 
-    button: {
-        flex: 1,
+    buttonAdd: {
         width: "50%",
         borderRadius: 10,        
         backgroundColor: NewColors.buttonBuy_Add,
+    },
+
+    buttonPrice: {
+        width: "45%",
+        height: "65%",
+        borderRadius: 10,     
+        backgroundColor: NewColors.background,
+        alignItems: "center",
+        marginHorizontal: 0,
+        marginLeft: 'auto'
+    },
+
+    card: {
+        marginVertical: 20,
+        marginHorizontal: 15,
+    },
+
+    titleContainer: {
+        marginRight: 65,
+    },
+
+    title: {
+        fontWeight: "bold",
+    },
+
+    head: {
+        flexDirection: "row",
+    },
+
+    imageContainer: {
+        alignItems: 'center',
+    },
+
+    image: {
+        margin: 15,
+        width: "100%",
+        height: "55%",
+    },
+
+    priceAndCount: {
+        flexDirection: 'row',
+        alignSelf: "flex-start",
+        marginVertical: 10,
+    },
+
+    count: {
+        fontWeight: "bold",
+        fontSize: 40,
+        color: NewColors.primary,
+    },
+
+    description: {
+        marginTop: -100,
+        marginHorizontal: 20,
+    },
+
+    shopButton: {
+        alignSelf: "flex-end",
+        marginHorizontal: 40,
+        marginBottom: -25,
+        marginTop: 0,
+    },
+
+    favorite: {
+        marginLeft: WIDTH - 140,
+        position: "absolute",
     }
 });
