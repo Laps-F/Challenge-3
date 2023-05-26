@@ -9,9 +9,10 @@ const stylesProductList = StyleSheet.create({
       justifyContent: "center",
     },
   
-    userWelcome: {
+    header: {
       height: 60,
-      alignItems: "flex-start",
+      marginBottom: 20,
+      justifyContent: "space-between"
     },
   
     welcome: {
@@ -45,6 +46,13 @@ const stylesProductList = StyleSheet.create({
     tabBar: {
       height: 60,
     },
+
+    shopButton: {
+      position: "absolute",
+      alignSelf: "flex-end"
+      
+
+  },
   });
 
   export default stylesProductList;
