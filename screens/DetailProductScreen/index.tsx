@@ -84,10 +84,10 @@ function DetailProductScreen({route, navigation}: Props): JSX.Element {
                     </View>
                     <View style={styles.imageContainer}>
                         <Image source={{uri: product.image}} style={styles.image}/>
-                        <StarRating rate={1.4}/>  
+                        <StarRating rate={product.rating.rate}/>  
                         <View style={styles.priceAndCount}>
                             <View style={styles.buttonPrice} >
-                                <Text style={styles.price}>R$ {product.price}</Text>
+                                <Text style={styles.price}>R$ {product.price.toFixed(2)}</Text>
                             </View>
                             <View style={[styles.priceAndCount, {marginLeft: 10, marginRight: -5, marginBottom: 40}]}>
                                 <PlusButton icon="-" onPress={SubItems}/>
