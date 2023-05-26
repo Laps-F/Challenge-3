@@ -1,14 +1,15 @@
-import { useState } from "react";
-import { Text, View, Image, ImageSourcePropType, Alert, Pressable } from "react-native";
+import { useState, useEffect } from "react";
+import { Text, View, Image, Alert, Pressable } from "react-native";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 import MyButton from "../../components/MyButton";
 import PlusButton from "../../components/PlusButton";
-import Rating from "../../components/Rating";
+import StarRating from "../../components/Rating";
 
 import { NewColors } from "../../constants/styles";
 import { styles } from "./style";
 import { AuthenticatedStackParams } from "../../types/Navigation";
+import ProductInterface from "../../types/ProductInterface";
 
 type Props = AuthenticatedStackParams<"DetailProductScreen">;
 
@@ -16,25 +17,37 @@ function DetailProductScreen({route, navigation}: Props): JSX.Element {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [numItems, setNumItems] = useState<number>(0);
     const [favorite, setFavorite] = useState<boolean>(false);
+    const [listOfProducts, setListOfProducts] = useState<ProductInterface[]>([]);
 
     const {product}= route.params!;
 
-    function addToCartHandler(){
+    useEffect(() => {
+        if(listOfProducts.length !== 0)
+            navigation.navigate("ShoppingCartScreen", listOfProducts);
+        
+    }, [listOfProducts]);
+
+    async function listOfProductsHandler(){
+        const newListOfProducts: ProductInterface | any = Array(numItems).fill(product)
+        setListOfProducts(newListOfProducts);
+    }
+
+    async function addToCartHandler(){
+        await listOfProductsHandler();
         setIsLoading(true);
 
         setTimeout(() => {
             setIsLoading(false);
+            
             Alert.alert("Good!", "Product added to cart.");
         }, 3000);
 
     }
 
-    function test(){
-
-    }
+    
 
     function cartHandler(){
-        navigation.navigate("ShoppingCartScreen");
+        navigation.navigate("ShoppingCartScreen", []);
     }
 
     function favoriteHandler() {
@@ -45,6 +58,7 @@ function DetailProductScreen({route, navigation}: Props): JSX.Element {
     }
 
     function AddItems(){
+        console.log(product);
         setNumItems((currentNumItems) => currentNumItems + 1);
     }
 
@@ -70,7 +84,7 @@ function DetailProductScreen({route, navigation}: Props): JSX.Element {
                     </View>
                     <View style={styles.imageContainer}>
                         <Image source={{uri: product.image}} style={styles.image}/>
-                        <Rating />  
+                        <StarRating rate={1.4}/>  
                         <View style={styles.priceAndCount}>
                             <View style={styles.buttonPrice} >
                                 <Text style={styles.price}>R$ {product.price}</Text>
