@@ -19,7 +19,7 @@ function DetailProductScreen({route, navigation}: Props): JSX.Element {
     const [favorite, setFavorite] = useState<boolean>(false);
     const [listOfProducts, setListOfProducts] = useState<ProductInterface[]>([]);
 
-    const {product}= route.params!;
+    const product = route.params!;
 
     useEffect(() => {
         if(listOfProducts.length !== 0)

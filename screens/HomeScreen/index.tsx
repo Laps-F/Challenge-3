@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, Pressable } from "react-native";
 import axios from "axios";
-import { useNavigation } from "@react-navigation/native";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-
-
+import { AuthenticatedStackParams } from "../../types/Navigation";
 import stylesProductList from "./style";
 import { NewColors } from "../../constants/styles";
 import Card from "../../components/Cards/Card";
 import ProductInterface from "../../types/ProductInterface";
 
-const HomeScreen: React.FC = () => {
-  const [productData, setProductData] = useState<ProductInterface[]>([]);
-  const navigation = useNavigation();
+type Props = AuthenticatedStackParams<"HomeScreen">;
 
+function HomeScreen({navigation}: Props): JSX.Element {
+  const [productData, setProductData] = useState<ProductInterface[]>([]);
 
   useEffect(() => {
     fetchDataAPI();
@@ -30,11 +28,11 @@ const HomeScreen: React.FC = () => {
   };
 
   function cartHandler () {
-    navigation.navigate("ShoppingCartScreen");
+    navigation.navigate("ShoppingCartScreen", []);
   }
 
   const handleCardPress = (product: ProductInterface) => {
-  navigation.navigate("DetailProductScreen", { product });
+  navigation.navigate("DetailProductScreen", product );
 };
 
   const renderProduct = ({ item }: { item: ProductInterface }) => (
