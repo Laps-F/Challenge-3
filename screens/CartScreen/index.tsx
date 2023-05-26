@@ -1,10 +1,14 @@
 import { Text, View } from "react-native";
+
 import MyButton from "../../components/MyButton";
 import { NewColors } from "../../constants/styles";
+import { AuthenticatedStackParams } from "../../types/Navigation";
 
 import { styles } from "./style";
 
-function ShoppingCartScreen() {
+type Props = AuthenticatedStackParams<"ShoppingCartScreen">;
+
+function ShoppingCartScreen({navigation, route}: Props) {
 
     function Test() {
 
