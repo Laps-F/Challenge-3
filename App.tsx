@@ -6,6 +6,7 @@ import WelcomeScreen from './screens/WelcomeScreen';
 import SignUpScreen from './screens/SignUpScreen';
 import HomeScreen from './screens/HomeScreen';
 import DetailProductScreen from './screens/DetailProductScreen';
+import ShoppingCartScreen from './screens/CartScreen';
 
 import { Colors, NewColors } from './constants/styles';
 
@@ -49,6 +50,17 @@ export default function App() {
           name="DetailProductScreen"
           component={DetailProductScreen}
           options={{
+            headerStyle: {backgroundColor: NewColors.background, height: 50},
+            title: '',
+            headerTintColor: Colors.primary,
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen 
+          name="ShoppingCartScreen"
+          component={ShoppingCartScreen}
+          options={{
+            headerLeft: ()=> null,
             headerStyle: {backgroundColor: NewColors.background},
             title: '',
             headerTintColor: Colors.primary,
