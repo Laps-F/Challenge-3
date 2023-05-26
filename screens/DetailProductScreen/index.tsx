@@ -127,4 +127,4 @@ function DetailProductScreen({navigation}: Props): JSX.Element {
     );
 }
 
-export default DetailProductScreen; */
+export default DetailProductScreen; 
