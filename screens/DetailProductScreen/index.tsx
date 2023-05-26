@@ -72,13 +72,10 @@ function DetailProductScreen({route, navigation}: Props): JSX.Element {
                         <Image source={{uri: product.image}} style={styles.image}/>
                         <Rating />  
                         <View style={styles.priceAndCount}>
-                            <MyButton 
-                                title= {"R$ " + product.price + ",00"}
-                                onPress={test}
-                                style={styles.buttonPrice} 
-                                color={NewColors.background}
-                            />
-                            <View style={[styles.priceAndCount, {marginLeft: 10, marginRight: -5}]}>
+                            <View style={styles.buttonPrice} >
+                                <Text style={styles.price}>R$ {product.price}</Text>
+                            </View>
+                            <View style={[styles.priceAndCount, {marginLeft: 10, marginRight: -5, marginBottom: 40}]}>
                                 <PlusButton icon="-" onPress={SubItems}/>
                                 <Text style={styles.count}>{numItems}</Text>
                                 <PlusButton icon="+" onPress={AddItems}/>
@@ -88,7 +85,7 @@ function DetailProductScreen({route, navigation}: Props): JSX.Element {
                 </View>
                 
                 <View style={styles.description}>
-                    <Text>{product.description}</Text>
+                    <Text style={{fontSize: 11}}>{product.description}</Text>
                 </View>
 
                 <View style={styles.buttonContainer}>

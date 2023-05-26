@@ -15,6 +15,8 @@ export const styles = StyleSheet.create({
         height: 50,
         alignItems: "center",
         justifyContent: "flex-start",
+        elevation: 10,
+        shadowColor: "black",
     },
 
     text: {
