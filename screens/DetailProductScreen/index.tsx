@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Text, View, Image, Alert, Pressable } from "react-native";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
@@ -9,17 +9,21 @@ import StarRating from "../../components/Rating";
 import { NewColors } from "../../constants/styles";
 import { styles } from "./style";
 import { AuthenticatedStackParams } from "../../types/Navigation";
+import { MyFavoritesContext } from "../../store/context/FavoriteProducts";
+
 import ProductInterface from "../../types/ProductInterface";
 
 type Props = AuthenticatedStackParams<"DetailProductScreen">;
 
 function DetailProductScreen({route, navigation}: Props): JSX.Element {
+    const favoriteProductsCtx = useContext(MyFavoritesContext);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [numItems, setNumItems] = useState<number>(0);
-    const [favorite, setFavorite] = useState<boolean>(false);
     const [listOfProducts, setListOfProducts] = useState<ProductInterface[]>([]);
 
     const product = route.params!;
+
+    const productIsFavorited = favoriteProductsCtx.ids.includes(product.id);
 
     useEffect(() => {
         if(listOfProducts.length !== 0)
@@ -44,17 +48,15 @@ function DetailProductScreen({route, navigation}: Props): JSX.Element {
 
     }
 
-    
-
     function cartHandler(){
         navigation.navigate("ShoppingCartScreen", []);
     }
 
     function favoriteHandler() {
-        if(favorite)
-            setFavorite(false);
+        if(productIsFavorited)
+            favoriteProductsCtx.removeFavorite(product.id);
         else
-            setFavorite(true);
+            favoriteProductsCtx.addFavorite(product.id);
     }
 
     function AddItems(){
@@ -79,7 +81,7 @@ function DetailProductScreen({route, navigation}: Props): JSX.Element {
                             <Text style={styles.title}>{product.title}</Text>
                         </View>
                         <Pressable style={styles.favorite} onPress={favoriteHandler}>
-                            <Ionicons name={favorite ? "heart" : "heart-outline"} size={40} color={NewColors.background} />
+                            <Ionicons name={productIsFavorited ? "heart" : "heart-outline"} size={40} color={NewColors.background} />
                         </Pressable>
                     </View>
                     <View style={styles.imageContainer}>
