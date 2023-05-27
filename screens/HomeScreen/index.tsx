@@ -46,7 +46,7 @@ function HomeScreen({navigation}: Props): JSX.Element {
 
   return (
     <View style={stylesProductList.container}>
-      <View style={stylesProductList.userWelcome}>
+      <View style={stylesProductList.header}>
         <Text style={stylesProductList.welcome}>Welcome</Text>
         <Text style={stylesProductList.userName}>Compass</Text>
         <Pressable style={stylesProductList.shopButton} onPress={cartHandler}>
@@ -57,12 +57,10 @@ function HomeScreen({navigation}: Props): JSX.Element {
         <FlatList
           data={productData}
           renderItem={renderProduct}
+          numColumns={2}
           keyExtractor={(item) => item.id.toString()}
         />
-      </View>
-      <View style={stylesProductList.tabBar}>
-        <Text>icons home and cart</Text>
-      </View>
+      </View>      
     </View>
   );
 };

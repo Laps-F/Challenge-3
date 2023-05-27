@@ -25,12 +25,14 @@ const Card: React.FC<CardProps> = ({ product, onPress }) => {
   };
   
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
       <View style={styles.cardProduct}>
         <Text style={styles.title}>{product.title}</Text>
         <Image source={{ uri: product.image }} style={styles.productImage} resizeMode="contain"/>
-        <Text style={styles.price}>{product.price}</Text>
-        <View style={styles.favoriteIconContainer}>
+        <View style={styles.priceField}>
+          <Text style={styles.price}>{product.price}</Text>
+        </View>
+        <View style={styles.favoriteIcon}>
       <TouchableOpacity onPress={handleFavoritePress}>
           <Icon
             name={productIsFavorited ? "heart" : "heart-outline"}
@@ -39,8 +41,7 @@ const Card: React.FC<CardProps> = ({ product, onPress }) => {
             style={styles.favoriteIcon}
           />
           </TouchableOpacity>
-          </View>
-        
+        </View>
       </View>
     </TouchableOpacity>
   );

@@ -10,29 +10,35 @@ const stylesProductList = StyleSheet.create({
     },
   
     header: {
-      height: 60,
-      marginBottom: 20,
-      justifyContent: "space-between"
+      display: "flex",
     },
   
     welcome: {
-      color: "white"
+      color: Colors.inputPlaceholder
     },
   
     userName: {
       textDecorationLine: "underline",
       color: Colors.primary
     },
+
+    shopButton: {
+      position: "relative",
+      alignSelf: "flex-end",
+      marginRight: 25
+    },
   
     scrollViewContainer: {
-      flex: 2,
+      flex: 4,
+      justifyContent: "space-between",
+      
     },
   
     productContainer: {
-      width: "100%",
-      paddingHorizontal: 10,
-      marginBottom: 10,
-      flexWrap: "wrap"
+      //width: "100%",
+      //paddingHorizontal: 10,
+      //marginBottom: 10,
+      //flexWrap: "wrap"
     },
     cardProduct: {
       width: "48%",
@@ -41,18 +47,7 @@ const stylesProductList = StyleSheet.create({
       borderRadius: 5,
       marginBottom: 10,
     },
-    
-    
-    tabBar: {
-      height: 60,
-    },
-
-    shopButton: {
-      position: "absolute",
-      alignSelf: "flex-end"
-      
-
-  },
+  
   });
 
   export default stylesProductList;
