@@ -17,6 +17,12 @@ import FavoritesContextProvider from './store/context/FavoriteProducts';
 
 const Stack = createStackNavigator<UnauthenticatedStackParams>();
 
+const ShoppingCartScreenWrapper = () => (
+  <Provider store={store}>
+    <ShoppingCartScreen />
+  </Provider>
+);
+
 export default function App() {
   return (
     <FavoritesContextProvider>
