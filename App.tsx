@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 import WelcomeScreen from './screens/WelcomeScreen';
 import SignUpScreen from './screens/SignUpScreen';
@@ -15,9 +17,15 @@ import FavoritesContextProvider from './store/context/FavoriteProducts';
 
 const Stack = createStackNavigator<UnauthenticatedStackParams>();
 
+const ShoppingCartScreenWrapper = () => (
+  <Provider store={store}>
+    <ShoppingCartScreen />
+  </Provider>
+);
+
 export default function App() {
   return (
-    <FavoritesContextProvider>
+<FavoritesContextProvider>
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen 
@@ -53,17 +61,6 @@ export default function App() {
             component={DetailProductScreen}
             options={{
               headerStyle: {backgroundColor: NewColors.background, height: 50},
-              title: '',
-              headerTintColor: Colors.primary,
-              headerShadowVisible: false,
-            }}
-          />
-          <Stack.Screen 
-            name="ShoppingCartScreen"
-            component={ShoppingCartScreen}
-            options={{
-              headerLeft: ()=> null,
-              headerStyle: {backgroundColor: NewColors.background},
               title: '',
               headerTintColor: Colors.primary,
               headerShadowVisible: false,
