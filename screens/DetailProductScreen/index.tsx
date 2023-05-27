@@ -1,72 +1,66 @@
-import { useState } from "react";
-import { Text, View, Image, ImageSourcePropType, Alert, Pressable } from "react-native";
+import { useState, useEffect, useContext } from "react";
+import { Text, View, Image, Alert, Pressable } from "react-native";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 import MyButton from "../../components/MyButton";
 import PlusButton from "../../components/PlusButton";
-import Rating from "../../components/Rating";
+import StarRating from "../../components/Rating";
 
 import { NewColors } from "../../constants/styles";
 import { styles } from "./style";
 import { AuthenticatedStackParams } from "../../types/Navigation";
+import { MyFavoritesContext } from "../../store/context/FavoriteProducts";
+
+import ProductInterface from "../../types/ProductInterface";
 
 type Props = AuthenticatedStackParams<"DetailProductScreen">;
 
-interface Product {
-    id: number;
-    title: string;
-    price: number;
-    description: string;
-    image: ImageSourcePropType;
-    rating: {
-        rate: number;
-        count: number;
-    };
-}
-
-function DetailProductScreen({navigation}: Props): JSX.Element {
+function DetailProductScreen({route, navigation}: Props): JSX.Element {
+    const favoriteProductsCtx = useContext(MyFavoritesContext);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [numItems, setNumItems] = useState<number>(0);
-    const [favorite, setFavorite] = useState<boolean>(false);
+    const [listOfProducts, setListOfProducts] = useState<ProductInterface[]>([]);
 
-    const prod: Product = {
-        id: 1,
-        title: "Teste akvk just to be bigger title than I need aha aosm cidm vism",
-        price: 300,
-        description: "Just a ramdom text jnd ad vsdv sdkvs odvaa oamkdv odssdmv odosmdv sdvosmv osdomsdv osdomsdv osdvs",
-        image: require("../../assets/icon.png"),
-        rating: {
-            rate: 4,
-            count: 2,
-        }
-    };
+    const product = route.params!;
 
-    function addToCartHandler(){
+    const productIsFavorited = favoriteProductsCtx.ids.includes(product.id);
+
+    useEffect(() => {
+        if(listOfProducts.length !== 0)
+            navigation.navigate("ShoppingCartScreen", listOfProducts);
+        
+    }, [listOfProducts]);
+
+    async function listOfProductsHandler(){
+        const newListOfProducts: ProductInterface | any = Array(numItems).fill(product)
+        setListOfProducts(newListOfProducts);
+    }
+
+    async function addToCartHandler(){
+        await listOfProductsHandler();
         setIsLoading(true);
 
         setTimeout(() => {
             setIsLoading(false);
+            
             Alert.alert("Good!", "Product added to cart.");
         }, 3000);
 
     }
 
-    function test(){
-
-    }
-
     function cartHandler(){
-        navigation.navigate("ShoppingCartScreen");
+        navigation.navigate("ShoppingCartScreen", []);
     }
 
     function favoriteHandler() {
-        if(favorite)
-            setFavorite(false);
+        if(productIsFavorited)
+            favoriteProductsCtx.removeFavorite(product.id);
         else
-            setFavorite(true);
+            favoriteProductsCtx.addFavorite(product.id);
     }
 
     function AddItems(){
+        console.log(product);
         setNumItems((currentNumItems) => currentNumItems + 1);
     }
 
@@ -84,23 +78,20 @@ function DetailProductScreen({navigation}: Props): JSX.Element {
                 <View style={styles.card}>
                     <View style={styles.head}>
                         <View style={styles.titleContainer}>
-                            <Text style={styles.title}>{prod.title}</Text>
+                            <Text style={styles.title}>{product.title}</Text>
                         </View>
                         <Pressable style={styles.favorite} onPress={favoriteHandler}>
-                            <Ionicons name={favorite ? "heart" : "heart-outline"} size={40} color={NewColors.background} />
+                            <Ionicons name={productIsFavorited ? "heart" : "heart-outline"} size={40} color={NewColors.background} />
                         </Pressable>
                     </View>
                     <View style={styles.imageContainer}>
-                        <Image source={prod.image} style={styles.image}/>
-                        <Rating />  
+                        <Image source={{uri: product.image}} style={styles.image}/>
+                        <StarRating rate={product.rating.rate}/>  
                         <View style={styles.priceAndCount}>
-                            <MyButton 
-                                title= {"R$ " + prod.price.toString() + ",00"}
-                                onPress={test}
-                                style={styles.buttonPrice} 
-                                color={NewColors.background}
-                            />
-                            <View style={[styles.priceAndCount, {marginLeft: 10, marginRight: -5}]}>
+                            <View style={styles.buttonPrice} >
+                                <Text style={styles.price}>R$ {product.price.toFixed(2)}</Text>
+                            </View>
+                            <View style={[styles.priceAndCount, {marginLeft: 10, marginRight: -5, marginBottom: 40}]}>
                                 <PlusButton icon="-" onPress={SubItems}/>
                                 <Text style={styles.count}>{numItems}</Text>
                                 <PlusButton icon="+" onPress={AddItems}/>
@@ -110,7 +101,7 @@ function DetailProductScreen({navigation}: Props): JSX.Element {
                 </View>
                 
                 <View style={styles.description}>
-                    <Text>{prod.description}</Text>
+                    <Text style={{fontSize: 11}}>{product.description}</Text>
                 </View>
 
                 <View style={styles.buttonContainer}>
@@ -127,4 +118,4 @@ function DetailProductScreen({navigation}: Props): JSX.Element {
     );
 }
 
-export default DetailProductScreen;
+export default DetailProductScreen; 

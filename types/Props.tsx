@@ -10,6 +10,10 @@ export type InputProps = {
     onUpdateValue(arg: string): void,
 }
 
+export type StarRatingProps = {
+    rate: number,
+}
+
 export type ButtonProps = {
     title: string,
     onPress(): void,

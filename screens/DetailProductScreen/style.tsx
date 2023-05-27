@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
     },
 
     buttonContainer: {
-        top: HEIGHT - 200,
+        top: HEIGHT - 180,
         width: "100%",
         position: 'absolute',
         justifyContent: 'center',
@@ -31,23 +31,36 @@ export const styles = StyleSheet.create({
     },
 
     buttonAdd: {
-        width: "50%",
+        width: "70%",
         borderRadius: 10,        
         backgroundColor: NewColors.buttonBuy_Add,
     },
 
     buttonPrice: {
         width: "45%",
-        height: "65%",
-        borderRadius: 10,     
+        height: "45%",
+        borderRadius: 15,     
         backgroundColor: NewColors.background,
         alignItems: "center",
         marginHorizontal: 0,
-        marginLeft: 'auto'
+        marginTop: 10,
+        marginLeft: 'auto',
+        elevation: 10,
+        shadowColor: "black",
+    },
+
+    price: {
+        fontWeight: "bold",
+        fontSize: 17,
+        color: NewColors.primary,
+        marginVertical: 10,
+        alignItems: "center",
+        alignSelf: "center",
+        textAlign: "center",
     },
 
     card: {
-        marginVertical: 20,
+        marginVertical: 10,
         marginHorizontal: 15,
     },
 
@@ -65,12 +78,16 @@ export const styles = StyleSheet.create({
 
     imageContainer: {
         alignItems: 'center',
+        width: "100%",
+        height: "80%",
     },
 
     image: {
-        margin: 15,
-        width: "100%",
-        height: "55%",
+        margin: 15, 
+        flex: 1,
+        width: "80%",
+        height: 1,
+        resizeMode: 'contain'
     },
 
     priceAndCount: {

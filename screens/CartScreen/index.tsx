@@ -1,14 +1,17 @@
 import { Text, View } from "react-native";
+
 import MyButton from "../../components/MyButton";
 import { NewColors } from "../../constants/styles";
+import { AuthenticatedStackParams } from "../../types/Navigation";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "../../redux/reducers";
 import { CartState } from "../../redux/reducers";
 
-
 import { styles } from "./style";
 
-function ShoppingCartScreen() {
+type Props = AuthenticatedStackParams<"ShoppingCartScreen">;
+
+function ShoppingCartScreen({navigation, route}: Props) {
 
     const cartItems = useSelector((state: { cart: CartState }) => state.cart.cartItems);
 
