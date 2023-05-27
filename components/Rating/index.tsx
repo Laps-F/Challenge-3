@@ -1,19 +1,22 @@
 import { Image, Text, View } from "react-native";
 import { styles } from "./style";
 
-function Rating() {
+import { Rating } from "react-native-ratings";
+import { StarRatingProps } from "../../types/Props";
 
-    const FullStar = require("../../assets/FullStar.png");
-    const HalfStar = require("../../assets/HalfStar.png");
+function StarRating({rate} : StarRatingProps) {
+
     return (
         <View style={styles.root}>
-            <Image source={FullStar}/>
-            <Image source={FullStar}/>
-            <Image source={FullStar}/>
-            <Image source={FullStar}/>
-            <Image source={HalfStar}/>
+            <Rating
+                type='star'
+                startingValue={rate}
+                imageSize={20}
+                readonly
+                fractions={10}
+            />
         </View>
     )
 }
 
-export default Rating;
+export default StarRating;
