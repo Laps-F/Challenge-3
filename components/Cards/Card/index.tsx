@@ -1,7 +1,8 @@
-import React, { useState }from "react";
+import React, { useState, useContext }from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 
+import { MyFavoritesContext } from "../../../store/context/FavoriteProducts";
 
 import styles from "./style";
 import ProductInterface from "../../../types/ProductInterface";
@@ -12,10 +13,15 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ product, onPress }) => {
-  const [isFavoritePressed, setIsFavoritePressed] = useState<boolean>(false);
+  const favoriteProductsCtx = useContext(MyFavoritesContext);
   
+  const productIsFavorited = favoriteProductsCtx.ids.includes(product.id);
+
   const handleFavoritePress = () => {
-    setIsFavoritePressed(!isFavoritePressed);
+    if(productIsFavorited)
+      favoriteProductsCtx.removeFavorite(product.id);
+    else
+      favoriteProductsCtx.addFavorite(product.id);
   };
   
   return (
@@ -27,9 +33,9 @@ const Card: React.FC<CardProps> = ({ product, onPress }) => {
         <View style={styles.favoriteIconContainer}>
       <TouchableOpacity onPress={handleFavoritePress}>
           <Icon
-            name={isFavoritePressed ? "heart" : "heart-outline"}
+            name={productIsFavorited ? "heart" : "heart-outline"}
             size={24}
-            color={isFavoritePressed ? "black" : "black"}
+            // color={isFavoritePressed ? "black" : "black"}
             style={styles.favoriteIcon}
           />
           </TouchableOpacity>
