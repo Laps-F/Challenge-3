@@ -23,18 +23,19 @@ const Card: React.FC<CardProps> = ({ product, onPress }) => {
       <View style={styles.cardProduct}>
         <Text style={styles.title}>{product.title}</Text>
         <Image source={{ uri: product.image }} style={styles.productImage} resizeMode="contain"/>
+      <View style={styles.priceField}>
         <Text style={styles.price}>{product.price}</Text>
-        <View style={styles.favoriteIconContainer}>
-      <TouchableOpacity onPress={handleFavoritePress}>
-          <Icon
-            name={isFavoritePressed ? "heart" : "heart-outline"}
-            size={24}
-            color={isFavoritePressed ? "black" : "black"}
-            style={styles.favoriteIcon}
-          />
+        </View>
+        <View style={styles.favoriteIcon}>
+          <TouchableOpacity onPress={handleFavoritePress}>
+            <Icon
+              name={isFavoritePressed ? "heart" : "heart-outline"}
+              size={24}
+              color={isFavoritePressed ? "black" : "black"}
+              style={styles.favoriteIcon}
+            />
           </TouchableOpacity>
-          </View>
-        
+        </View>
       </View>
     </TouchableOpacity>
   );
