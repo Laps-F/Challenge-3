@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from "react-native";
+import { Colors } from "../../../constants/styles";
 
 
 const { width } = Dimensions.get("window");
@@ -11,8 +12,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   cardProduct: {
-    width: cardWidth,
-    padding: 16,
+    padding: 12,
     backgroundColor: "#ffffff",
     borderRadius: 8,
     marginBottom: 16,
@@ -29,17 +29,32 @@ const styles = StyleSheet.create({
     height: cardWidth - 32,
     marginBottom: 8,
   },
+
+  priceField: {
+    position: "absolute",
+    backgroundColor: Colors.background,
+    borderRadius: 8,
+    alignItems: "flex-start",
+    textAlign: "left"
+  },
+  
   price: {
+    position: "absolute",
     fontSize: 14,
     fontWeight: "bold",
+    marginLeft: "3.76%",
+    marginRight: "37.63%",
+    marginTop: "105%",
+    marginBottom: "3.98%",
+    color: Colors.primary,
   },
 
   favoriteIcon: {
-    //position: "absolute",
-    //bottom: 50,
-    //right: -100,
-    width: 24, // Defina a largura desejada
-    height: 24, // Defina a altura desejada
+    position: "relative",
+    width: 24,
+    height: 24,
+    marginLeft: 74,
+    marginRight: -80,
   },
 
   description: {
@@ -49,6 +64,8 @@ const styles = StyleSheet.create({
     left: 59,
     top: 622,
   },
+
+
   
 });
 
