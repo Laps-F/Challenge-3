@@ -10,6 +10,8 @@ import { NewColors } from "../../constants/styles";
 import { styles } from "./style";
 import { AuthenticatedStackParams } from "../../types/Navigation";
 import { MyFavoritesContext } from "../../store/context/FavoriteProducts";
+import { addToCart } from "../../redux/reducers";
+import { store } from "../../redux/store";
 
 import ProductInterface from "../../types/ProductInterface";
 
@@ -17,6 +19,7 @@ type Props = AuthenticatedStackParams<"DetailProductScreen">;
 
 function DetailProductScreen({route, navigation}: Props): JSX.Element {
     const favoriteProductsCtx = useContext(MyFavoritesContext);
+
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [numItems, setNumItems] = useState<number>(0);
     const [listOfProducts, setListOfProducts] = useState<ProductInterface[]>([]);
@@ -26,8 +29,9 @@ function DetailProductScreen({route, navigation}: Props): JSX.Element {
     const productIsFavorited = favoriteProductsCtx.ids.includes(product.id);
 
     useEffect(() => {
-        if(listOfProducts.length !== 0)
-            navigation.navigate("ShoppingCartScreen", listOfProducts);
+        if(listOfProducts.length !== 0){}
+            listOfProducts.map((prod) => store.dispatch(addToCart(prod)));
+
         
     }, [listOfProducts]);
 
@@ -60,7 +64,6 @@ function DetailProductScreen({route, navigation}: Props): JSX.Element {
     }
 
     function AddItems(){
-        console.log(product);
         setNumItems((currentNumItems) => currentNumItems + 1);
     }
 
