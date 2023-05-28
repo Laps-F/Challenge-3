@@ -23,8 +23,10 @@ export const styles = StyleSheet.create({
   },
   productsContainer: {
     top: 10,
-    flexDirection: "row",
-    justifyContent: 'center',
+    //flexDirection: 'row',
+    //justifyContent: 'center',
+    //alignContent: 'center',
+    alignItems: 'center'
   },
   cardContainer: {
     position: "relative",
@@ -56,7 +58,7 @@ export const styles = StyleSheet.create({
     maxWidth: 100,
     alignItems: "center",
     justifyContent: "center",
-    
+
   },
   cardPrice: {
     fontSize: 16,
@@ -89,13 +91,13 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  emptyText:{
+  emptyText: {
     fontSize: 32,
     fontWeight: "600",
     color: "#D9D9D9",
     marginBottom: 50,
   },
-  addProductText:{
+  addProductText: {
     fontSize: 20,
     fontWeight: "600",
     color: "#F5F5F5"
@@ -112,7 +114,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "red",
     justifyContent: "center",
     alignItems: "center",
-    top: -105, 
+    top: -100,
     right: -145,
   },
   rectangle: {
@@ -121,6 +123,15 @@ export const styles = StyleSheet.create({
     backgroundColor: "white",
     marginTop: 2,
   },
+  separator: {
+    position: "relative",
+    height: 1,
+    backgroundColor: '#656262',
+    //marginVertical: 10,
+    width: '95%',
+    marginBottom: 8,
+  },
+
 
 
 });
