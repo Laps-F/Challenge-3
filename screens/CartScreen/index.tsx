@@ -1,4 +1,4 @@
-import { Text, View, Image, TouchableOpacity } from "react-native";
+import { Text, View, Image, TouchableOpacity, ScrollView, FlatList } from "react-native";
 
 import MyButton from "../../components/MyButton";
 import { NewColors } from "../../constants/styles";
@@ -30,29 +30,38 @@ function ShoppingCartScreen({ navigation, route }: Props) {
                     <Text style={styles.totalText}>TOTAL</Text>
                     <Text style={styles.totalValue}>R$ 00,00</Text>
                 </View>
-                <View>
-                    <View>
-                        {cartItems.length === 0 ? (
-                            <Text style={styles.totalText}>Ops, Empty Cart :( Add a product</Text>
-                        ) : (
-                            cartItems.map((product, index) => (
-                                <TouchableOpacity key={index} style={styles.cardContainer}>
-                                    <Image source={{ uri: product.image }} style={styles.cardImage} />
-                                    <Text style={styles.cardTitle}>{product.title}</Text>
-                                    <Text style={styles.cardPrice}>R$ {product.price}</Text>
-                                </TouchableOpacity>
-                            ))
-                        )}
-                    </View>
+                <View style={styles.productsContainer}>
+                    {cartItems.length === 0 ? (
+                        <Text style={styles.totalText}>Ops, Empty Cart :( Add a product</Text>
+                    ) : (
+                        <View style={styles.listContainer}>
+                            <FlatList
+                                data={cartItems}
+                                keyExtractor={(item, index) => index.toString()}
+                                renderItem={({ item }) => (
+                                    <View style={styles.productsContainer}>
+                                        <View style={styles.cardContainer}>
+                                            <Image source={{ uri: item.image }} style={styles.cardImage} />
+                                            <View style={styles.cardInfoContainer}>
+                                                <Text style={styles.cardTitle} numberOfLines={2}>{item.title}</Text>
+                                                <Text style={styles.cardPrice}>R$ {item.price}</Text>
+                                            </View>
+                                        </View>
+                                    </View>
+                                )}
+                            />
+                        </View>
+                    )}
                 </View>
-                <View style={styles.buttonContainer}>
-                    <MyButton
-                        title="BUY"
-                        onPress={Test}
-                        style={styles.button}
-                        color={NewColors.buttonBuy_Add}
-                    />
-                </View>
+
+            </View>
+            <View style={styles.buttonContainer}>
+                <MyButton
+                    title="BUY"
+                    onPress={Test}
+                    style={styles.button}
+                    color={NewColors.buttonBuy_Add}
+                />
             </View>
         </View>
     );
