@@ -31,11 +31,13 @@ export const styles = StyleSheet.create({
     position: "relative",
     flexDirection: "row",
     alignItems: "center",
-    width: "100%",
+    width: "90%",
     height: 129,
     backgroundColor: "#FFFFFF",
     borderRadius: 20,
     marginBottom: 15,
+    marginTop: 5,
+    //paddingRight: 10,
   },
   cardImage: {
     width: 90,
@@ -83,6 +85,27 @@ export const styles = StyleSheet.create({
   listContainer: {
     height: HEIGHT * 0.60,
     width: '85%',
+  },
+  removeButton: {
+    alignItems: "center",
+    position: "absolute",
+    right: -5,
+  },
+  removeButtonInner: {
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    backgroundColor: "red",
+    justifyContent: "center",
+    alignItems: "center",
+    top: -40, 
+    right: -2,
+  },
+  rectangle: {
+    width: 10,
+    height: 2,
+    backgroundColor: "white",
+    marginTop: 2,
   },
 
 
