@@ -51,7 +51,10 @@ function ShoppingCartScreen({ navigation, route }: Props) {
                 </View>
                 <View style={styles.productsContainer}>
                     {cartItems.length === 0 ? (
-                        <Text style={styles.totalText}>Ops, Empty Cart :( Add a product</Text>
+                        <View style={styles.emptyMessageContainer}>
+                            <Text style={styles.emptyText}>Ops, Empty Cart :(</Text>
+                            <Text style={styles.addProductText}>Add a product</Text>
+                        </View>
                     ) : (
                         <View style={styles.listContainer}>
                             <FlatList

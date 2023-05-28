@@ -86,6 +86,24 @@ export const styles = StyleSheet.create({
     height: HEIGHT * 0.60,
     width: '85%',
   },
+  emptyMessageContainer: {
+    height: HEIGHT * 0.60,
+    width: '85%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    //backgroundColor: NewColors.primary
+  },
+  emptyText:{
+    fontSize: 32,
+    fontWeight: "600",
+    color: "#D9D9D9",
+    marginBottom: 50,
+  },
+  addProductText:{
+    fontSize: 20,
+    fontWeight: "600",
+    color: "#F5F5F5"
+  },
   removeButton: {
     alignItems: "center",
     position: "absolute",
