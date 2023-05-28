@@ -7,6 +7,7 @@ import ProductInterface from "../../types/ProductInterface";
 import { AuthenticatedStackParams } from "../../types/Navigation";
 import { styles } from "./style";
 import { removeFromCart } from "../../redux/reducers";
+import React, { useEffect, useState } from "react";
 
 
 
@@ -16,6 +17,20 @@ function ShoppingCartScreen({ navigation, route }: Props) {
 
     const cartItems = useSelector((state: { cart: CartState }) => state.cart.cartItems);
     const dispatch = useDispatch();
+
+    const [totalPrice, setTotalPrice] = useState(0);
+
+    useEffect(() => {
+        calculateTotalPrice();
+    }, [cartItems]);
+
+    const calculateTotalPrice = () => {
+        let total = 0;
+        cartItems.forEach((item) => {
+            total += item.price;
+        });
+        setTotalPrice(total);
+    };
 
     const handleRemoveItem = (itemId: number) => {
         dispatch(removeFromCart(itemId));
@@ -32,7 +47,7 @@ function ShoppingCartScreen({ navigation, route }: Props) {
             <View>
                 <View style={styles.totalPriceContainer}>
                     <Text style={styles.totalText}>TOTAL</Text>
-                    <Text style={styles.totalValue}>R$ 00,00</Text>
+                    <Text style={styles.totalValue}>R$ {totalPrice.toFixed(2)}</Text>
                 </View>
                 <View style={styles.productsContainer}>
                     {cartItems.length === 0 ? (
