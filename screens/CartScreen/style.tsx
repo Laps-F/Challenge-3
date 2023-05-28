@@ -49,6 +49,15 @@ export const styles = StyleSheet.create({
     marginBottom: 5,
     marginRight: 5,
   },
+  cardPriceContainer: {
+    backgroundColor: "#282729",
+    paddingVertical: 5,
+    borderRadius: 8,
+    maxWidth: 100,
+    alignItems: "center",
+    justifyContent: "center",
+    
+  },
   cardPrice: {
     fontSize: 16,
     color: NewColors.primary,
@@ -64,7 +73,7 @@ export const styles = StyleSheet.create({
     marginTop: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    
+
   },
   button: {
     width: "50%",
