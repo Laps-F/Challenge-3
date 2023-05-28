@@ -43,8 +43,10 @@ function ShoppingCartScreen({ navigation, route }: Props) {
                                         <View style={styles.cardContainer}>
                                             <Image source={{ uri: item.image }} style={styles.cardImage} />
                                             <View style={styles.cardInfoContainer}>
-                                                <Text style={styles.cardTitle} numberOfLines={2}>{item.title}</Text>
-                                                <Text style={styles.cardPrice}>R$ {item.price}</Text>
+                                                <Text style={styles.cardTitle}>{item.title}</Text>
+                                                <View style={styles.cardPriceContainer}>
+                                                    <Text style={styles.cardPrice}>R$ {item.price}</Text>
+                                                </View>
                                             </View>
                                         </View>
                                     </View>
