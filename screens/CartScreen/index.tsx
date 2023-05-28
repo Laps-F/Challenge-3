@@ -7,9 +7,7 @@ import { addToCart } from "../../redux/reducers";
 import { CartState } from "../../redux/reducers";
 
 import { AuthenticatedStackParams } from "../../types/Navigation";
-import { useSelector, useDispatch } from "react-redux";
-import { addToCart } from "../../redux/reducers";
-import { CartState } from "../../redux/reducers";
+
 
 import { styles } from "./style";
 
