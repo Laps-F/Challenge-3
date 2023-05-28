@@ -31,20 +31,23 @@ export const styles = StyleSheet.create({
     position: "relative",
     flexDirection: "row",
     alignItems: "center",
-    width: "85%",
+    width: "100%",
     height: 129,
-    backgroundColor: "#eee",
-    borderRadius: 5,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 20,
+    marginBottom: 15,
   },
   cardImage: {
-    width: 122,
-    height: 122,
+    width: 90,
+    height: 90,
     marginRight: 10,
+    marginLeft: 10,
   },
   cardTitle: {
     fontSize: 14,
     fontWeight: "bold",
     marginBottom: 5,
+    marginRight: 5,
   },
   cardPrice: {
     fontSize: 16,
@@ -58,7 +61,7 @@ export const styles = StyleSheet.create({
   },
   buttonContainer: {
     width: "100%",
-    //marginTop: 20,
+    marginTop: 20,
     justifyContent: 'center',
     alignItems: 'center',
     
@@ -69,7 +72,8 @@ export const styles = StyleSheet.create({
     backgroundColor: NewColors.buttonBuy_Add,
   },
   listContainer: {
-    height: HEIGHT * 0.65,
+    height: HEIGHT * 0.60,
+    width: '85%',
   },
 
 
