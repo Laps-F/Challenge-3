@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from "react";
+import { useSelector} from "react-redux";
 import { Text, View, Image, Alert, Pressable } from "react-native";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
@@ -10,8 +11,9 @@ import { NewColors } from "../../constants/styles";
 import { styles } from "./style";
 import { AuthenticatedStackParams } from "../../types/Navigation";
 import { MyFavoritesContext } from "../../store/context/FavoriteProducts";
-import { addToCart } from "../../redux/reducers";
+import { addToCart, CartState } from "../../redux/reducers";
 import { store } from "../../redux/store";
+
 
 import ProductInterface from "../../types/ProductInterface";
 
@@ -19,6 +21,7 @@ type Props = AuthenticatedStackParams<"DetailProductScreen">;
 
 function DetailProductScreen({route, navigation}: Props): JSX.Element {
     const favoriteProductsCtx = useContext(MyFavoritesContext);
+    const cartItems = useSelector((state: { cart: CartState }) => state.cart.cartItems);
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [numItems, setNumItems] = useState<number>(0);
@@ -75,6 +78,9 @@ function DetailProductScreen({route, navigation}: Props): JSX.Element {
     return (
         <View style={styles.root}>
             <Pressable style={styles.shopButton} onPress={cartHandler}>
+                <View style={styles.containerNumProduct}>
+                    <Text style={styles.numProduct}>{cartItems.length}</Text>
+                </View>
                 <Ionicons name="cart-outline" size={40} color={NewColors.primary} />
             </Pressable>
             <View style={styles.cardContainer}>
