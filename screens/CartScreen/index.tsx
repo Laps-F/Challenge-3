@@ -1,9 +1,8 @@
-import { Text, View, Image, TouchableOpacity, FlatList, TouchableNativeFeedback} from "react-native";
+import { Text, View, Image, Alert, FlatList, TouchableNativeFeedback } from "react-native";
 import MyButton from "../../components/MyButton";
 import { NewColors } from "../../constants/styles";
 import { useSelector, useDispatch } from "react-redux";
 import { CartState } from "../../redux/reducers";
-import ProductInterface from "../../types/ProductInterface";
 import { AuthenticatedStackParams } from "../../types/Navigation";
 import { styles } from "./style";
 import { removeFromCart } from "../../redux/reducers";
@@ -17,6 +16,16 @@ function ShoppingCartScreen({ navigation, route }: Props) {
 
     const cartItems = useSelector((state: { cart: CartState }) => state.cart.cartItems);
     const dispatch = useDispatch();
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    function Test() {
+        setIsLoading(true);
+
+        setTimeout(() => {
+            setIsLoading(false);
+
+            Alert.alert("Good!", "Product successfully purchased.");
+        }, 2000);
+    }
 
     const [totalPrice, setTotalPrice] = useState(0);
 
@@ -35,10 +44,6 @@ function ShoppingCartScreen({ navigation, route }: Props) {
     const handleRemoveItem = (itemId: number) => {
         dispatch(removeFromCart(itemId));
     };
-
-    function Test() {
-        console.log(cartItems);
-    }
 
 
     return (
@@ -90,6 +95,7 @@ function ShoppingCartScreen({ navigation, route }: Props) {
                     onPress={Test}
                     style={styles.button}
                     color={NewColors.buttonBuy_Add}
+                    load={isLoading}
                 />
             </View>
         </View>
