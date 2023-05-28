@@ -2,18 +2,22 @@ import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, Pressable } from "react-native";
 import axios from "axios";
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { useSelector } from 'react-redux';
+
 
 import { AuthenticatedStackParams } from "../../types/Navigation";
 import stylesProductList from "./style";
 import { NewColors } from "../../constants/styles";
 import Card from "../../components/Cards/Card";
 import ProductInterface from "../../types/ProductInterface";
+import { CartState } from "../../redux/reducers";
+
 
 type Props = AuthenticatedStackParams<"HomeScreen">;
 
 function HomeScreen({navigation}: Props): JSX.Element {
   const [productData, setProductData] = useState<ProductInterface[]>([]);
-  const [cartItemsCount, setCartItemsCount] = useState(0);
+  const cartItems = useSelector((state: { cart: CartState }) => state.cart.cartItems);
   
   useEffect(() => {
     fetchDataAPI();
@@ -52,9 +56,9 @@ function HomeScreen({navigation}: Props): JSX.Element {
         <Text style={stylesProductList.userName}>Compass</Text>
         <Pressable style={stylesProductList.shopButton} onPress={cartHandler}>
           <Ionicons name="cart-outline" size={40} color={NewColors.primary} />
-          {cartItemsCount >= 0 && (
+          {cartItems.length >= 0 && (
             <View style={stylesProductList.cartItemCountContainer}>
-              <Text style={stylesProductList.cartItemCountText}>{cartItemsCount}</Text>
+              <Text style={stylesProductList.cartItemCountText}>{cartItems.length}</Text>
             </View>
           )}
         </Pressable>
