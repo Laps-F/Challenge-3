@@ -96,6 +96,7 @@ function ShoppingCartScreen({ navigation, route }: Props) {
                     style={styles.button}
                     color={NewColors.buttonBuy_Add}
                     load={isLoading}
+                    disabled={cartItems.length === 0}
                 />
             </View>
         </View>

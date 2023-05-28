@@ -25,7 +25,6 @@ export const styles = StyleSheet.create({
     top: 10,
     flexDirection: "row",
     justifyContent: 'center',
-    //backgroundColor: NewColors.primary,
   },
   cardContainer: {
     position: "relative",
@@ -36,8 +35,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     borderRadius: 20,
     marginBottom: 15,
-    marginTop: 5,
-    //paddingRight: 10,
+    marginTop: 10,
   },
   cardImage: {
     width: 90,
@@ -64,7 +62,6 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     color: NewColors.primary,
     fontWeight: '600',
-    //backgroundColor: NewColors.primary,
   },
 
   cardInfoContainer: {
@@ -91,7 +88,6 @@ export const styles = StyleSheet.create({
     width: '85%',
     alignItems: 'center',
     justifyContent: 'center',
-    //backgroundColor: NewColors.primary
   },
   emptyText:{
     fontSize: 32,
