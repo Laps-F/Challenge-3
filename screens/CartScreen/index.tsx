@@ -1,4 +1,4 @@
-import { Text, View, Image, TouchableOpacity, Button, FlatList } from "react-native";
+import { Text, View, Image, TouchableOpacity, FlatList, TouchableNativeFeedback} from "react-native";
 import MyButton from "../../components/MyButton";
 import { NewColors } from "../../constants/styles";
 import { useSelector, useDispatch } from "react-redux";
@@ -66,11 +66,11 @@ function ShoppingCartScreen({ navigation, route }: Props) {
                                                 <View style={styles.cardPriceContainer}>
                                                     <Text style={styles.cardPrice}>R$ {item.price}</Text>
                                                 </View>
-                                                <TouchableOpacity onPress={() => handleRemoveItem(item.id)} style={styles.removeButton}>
+                                                <TouchableNativeFeedback onPress={() => handleRemoveItem(item.id)} style={styles.removeButton}>
                                                     <View style={styles.removeButtonInner}>
                                                         <View style={styles.rectangle} />
                                                     </View>
-                                                </TouchableOpacity>
+                                                </TouchableNativeFeedback>
                                             </View>
                                         </View>
                                     </View>
