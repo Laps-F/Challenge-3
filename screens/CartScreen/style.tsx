@@ -98,8 +98,8 @@ export const styles = StyleSheet.create({
     backgroundColor: "red",
     justifyContent: "center",
     alignItems: "center",
-    top: -40, 
-    right: -2,
+    top: -105, 
+    right: -145,
   },
   rectangle: {
     width: 10,
