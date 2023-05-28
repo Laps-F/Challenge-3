@@ -41,8 +41,8 @@ function ShoppingCartScreen({ navigation, route }: Props) {
         setTotalPrice(total);
     };
 
-    const handleRemoveItem = (itemId: number) => {
-        dispatch(removeFromCart(itemId));
+    const handleRemoveItem = (index: number) => {
+        dispatch(removeFromCart(index));
     };
 
 
@@ -65,7 +65,7 @@ function ShoppingCartScreen({ navigation, route }: Props) {
                             <FlatList
                                 data={cartItems}
                                 keyExtractor={(item, index) => index.toString()}
-                                renderItem={({ item }) => (
+                                renderItem={({ item, index }) => (
                                     <View style={styles.productsContainer}>
                                         <View style={styles.cardContainer}>
                                             <Image source={{ uri: item.image }} style={styles.cardImage} />
@@ -74,7 +74,7 @@ function ShoppingCartScreen({ navigation, route }: Props) {
                                                 <View style={styles.cardPriceContainer}>
                                                     <Text style={styles.cardPrice}>R$ {item.price}</Text>
                                                 </View>
-                                                <TouchableNativeFeedback onPress={() => handleRemoveItem(item.id)} style={styles.removeButton}>
+                                                <TouchableNativeFeedback onPress={() => handleRemoveItem(index)} style={styles.removeButton}>
                                                     <View style={styles.removeButtonInner}>
                                                         <View style={styles.rectangle} />
                                                     </View>
