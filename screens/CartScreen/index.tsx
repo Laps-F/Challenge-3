@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { Text, View, Image, TouchableOpacity } from "react-native";
 
 import MyButton from "../../components/MyButton";
 import { NewColors } from "../../constants/styles";
