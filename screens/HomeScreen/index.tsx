@@ -13,7 +13,8 @@ type Props = AuthenticatedStackParams<"HomeScreen">;
 
 function HomeScreen({navigation}: Props): JSX.Element {
   const [productData, setProductData] = useState<ProductInterface[]>([]);
-
+  const [cartItemsCount, setCartItemsCount] = useState(0);
+  
   useEffect(() => {
     fetchDataAPI();
   }, []);
@@ -51,6 +52,11 @@ function HomeScreen({navigation}: Props): JSX.Element {
         <Text style={stylesProductList.userName}>Compass</Text>
         <Pressable style={stylesProductList.shopButton} onPress={cartHandler}>
           <Ionicons name="cart-outline" size={40} color={NewColors.primary} />
+          {cartItemsCount >= 0 && (
+            <View style={stylesProductList.cartItemCountContainer}>
+              <Text style={stylesProductList.cartItemCountText}>{cartItemsCount}</Text>
+            </View>
+          )}
         </Pressable>
       </View>
       <View style={stylesProductList.scrollViewContainer}>
