@@ -1,21 +1,25 @@
 import { Text, View, Image, TouchableOpacity, ScrollView, FlatList } from "react-native";
-
 import MyButton from "../../components/MyButton";
 import { NewColors } from "../../constants/styles";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart } from "../../redux/reducers";
 import { CartState } from "../../redux/reducers";
-
+import ProductInterface from "../../types/ProductInterface";
 import { AuthenticatedStackParams } from "../../types/Navigation";
-
-
 import { styles } from "./style";
+import { removeFromCart } from "../../redux/reducers";
+
+
 
 type Props = AuthenticatedStackParams<"ShoppingCartScreen">;
 
 function ShoppingCartScreen({ navigation, route }: Props) {
 
     const cartItems = useSelector((state: { cart: CartState }) => state.cart.cartItems);
+    const dispatch = useDispatch();
+
+    const handleRemoveItem = (itemId: number) => {
+        dispatch(removeFromCart(itemId));
+    };
 
     function Test() {
         console.log(cartItems);
@@ -47,6 +51,9 @@ function ShoppingCartScreen({ navigation, route }: Props) {
                                                 <View style={styles.cardPriceContainer}>
                                                     <Text style={styles.cardPrice}>R$ {item.price}</Text>
                                                 </View>
+                                                <TouchableOpacity onPress={() => handleRemoveItem(item.id)}>
+                                                    <Text>Remover</Text>
+                                                </TouchableOpacity>
                                             </View>
                                         </View>
                                     </View>
