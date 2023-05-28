@@ -13,7 +13,7 @@ import { styles } from "./style";
 
 type Props = AuthenticatedStackParams<"ShoppingCartScreen">;
 
-function ShoppingCartScreen({navigation, route}: Props) {
+function ShoppingCartScreen({ navigation, route }: Props) {
 
     const cartItems = useSelector((state: { cart: CartState }) => state.cart.cartItems);
 
@@ -31,11 +31,19 @@ function ShoppingCartScreen({navigation, route}: Props) {
                     <Text style={styles.totalValue}>R$ 00,00</Text>
                 </View>
                 <View>
-                    {cartItems.length === 0 ? (
-                        <Text style={styles.totalText}>Ops, Empty Cart :( Add a product</Text>
-                    ) : (
-                        <Text style={styles.totalText}>Has products here</Text>
-                    )}
+                    <View>
+                        {cartItems.length === 0 ? (
+                            <Text style={styles.totalText}>Ops, Empty Cart :( Add a product</Text>
+                        ) : (
+                            cartItems.map((product, index) => (
+                                <TouchableOpacity key={index} style={styles.cardContainer}>
+                                    <Image source={{ uri: product.image }} style={styles.cardImage} />
+                                    <Text style={styles.cardTitle}>{product.title}</Text>
+                                    <Text style={styles.cardPrice}>R$ {product.price}</Text>
+                                </TouchableOpacity>
+                            ))
+                        )}
+                    </View>
                 </View>
                 <View style={styles.buttonContainer}>
                     <MyButton
