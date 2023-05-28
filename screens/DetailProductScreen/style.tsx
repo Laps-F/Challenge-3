@@ -117,5 +117,23 @@ export const styles = StyleSheet.create({
     favorite: {
         marginLeft: WIDTH - 140,
         position: "absolute",
-    }
+    },
+
+    containerNumProduct: {
+        zIndex:10,
+        borderRadius: 10,
+        marginBottom: -20,
+        alignSelf: "flex-end",
+        width: 15,
+        height: 15,
+        backgroundColor: NewColors.buttonBuy_Add,
+    },
+
+    numProduct: {
+        fontSize: 15,
+        fontWeight: "bold",
+        marginTop: -3,
+        alignSelf: "center",
+        color: "white",
+    },
 });
