@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
-import { Colors } from "../../constants/styles";
+import { Colors, NewColors } from "../../constants/styles";
+import { getModeForUsageLocation } from "typescript";
 
 const stylesProductList = StyleSheet.create({
     container: {
@@ -47,7 +48,18 @@ const stylesProductList = StyleSheet.create({
       borderRadius: 5,
       marginBottom: 10,
     },
-  
+    cartItemCountContainer: {
+      position: "absolute",
+      backgroundColor: NewColors.buttonBuy_Add,
+      width: 20, 
+      height: 20, 
+      borderRadius: 10,
+      marginLeft: 30,
+      alignItems: "center"
+    },
+    cartItemCountText: {
+      color: "#F5F5F5",  
+    },
   });
 
   export default stylesProductList;
