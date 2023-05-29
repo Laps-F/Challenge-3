@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, FlatList, Pressable } from "react-native";
+import { View, Text, FlatList, Pressable, ActivityIndicator } from "react-native";
 import axios from "axios";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useSelector } from 'react-redux';
@@ -66,14 +66,21 @@ function HomeScreen({navigation}: Props): JSX.Element {
             )}
           </Pressable>
       </View>
-      <View style={stylesProductList.scrollViewContainer}>
-        <FlatList
-          data={productData}
-          renderItem={renderProduct}
-          numColumns={2}
-          keyExtractor={(item) => item.id.toString()}
-        />
-      </View>      
+      {
+        productData.length === 0? 
+        <View style={stylesProductList.loading}>
+          <ActivityIndicator size="large" />
+        </View>
+        :
+        <View style={stylesProductList.scrollViewContainer}>
+          <FlatList
+            data={productData}
+            renderItem={renderProduct}
+            numColumns={2}
+            keyExtractor={(item) => item.id.toString()}
+          />
+        </View> 
+      }     
     </View>
   );
 };
