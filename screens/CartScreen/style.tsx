@@ -24,9 +24,6 @@ export const styles = StyleSheet.create({
   },
   productsContainer: {
     top: 10,
-    //flexDirection: 'row',
-    //justifyContent: 'center',
-    //alignContent: 'center',
     alignItems: 'center'
   },
   cardContainer: {
@@ -69,6 +66,7 @@ export const styles = StyleSheet.create({
 
   cardInfoContainer: {
     flex: 1,
+    position: "relative",
   },
   buttonContainer: {
     width: "100%",
@@ -104,9 +102,9 @@ export const styles = StyleSheet.create({
     color: "#F5F5F5"
   },
   removeButton: {
-    alignItems: "center",
     position: "absolute",
-    right: -5,
+    right: 0,
+    top:0,
   },
   removeButtonInner: {
     width: 30,
