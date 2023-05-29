@@ -89,7 +89,7 @@ function MainTabNavigator() {
         options={{
           tabBarLabel: 'Cart',
           tabBarIcon: ({ color, size, focused }) => (
-            <Ionicons name="cart" size={size} color={focused ? NewColors.primary : "#FFFFFF"} />
+            <Ionicons name="basket-outline" size={size} color={focused ? NewColors.primary : "#FFFFFF"} />
           ),
         }}
       />
