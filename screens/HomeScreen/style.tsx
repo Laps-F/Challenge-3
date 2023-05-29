@@ -3,51 +3,52 @@ import { Colors, NewColors } from "../../constants/styles";
 import { getModeForUsageLocation } from "typescript";
 
 const stylesProductList = StyleSheet.create({
-    
-  
+ 
    container: {
       backgroundColor: Colors.background,
       flex: 1,
       textAlign: "left",
       justifyContent: "center",
     },
-  
     header: {
       display: "flex",
       flexDirection: "row",
       justifyContent: "space-between",
       alignContent: "center",
       alignItems: "center",
-      marginBottom: 30
-      
-    },
-  
+      marginBottom: 30      
+    },  
     welcome: {
       color: Colors.inputPlaceholder,
       fontSize: 14,
       marginLeft: 10
-    },
-  
+    },  
     userName: {
       textDecorationLine: "underline",
       color: Colors.primary,
       fontSize: 20,
-      marginTop: 15,
+      marginTop: 11,
       marginLeft: 10,
+      borderBottomColor: "white"
     },
 
+    userNameContainer: {
+      flexDirection: 'row',
+      alignItems: 'flex-end',
+    },
+    underline: {
+      height: 2,
+      backgroundColor: "white",
+    },
     shopButton: {
       position: "absolute",
       alignSelf: "auto",
       marginLeft: 357
-    },
-  
+    },  
     scrollViewContainer: {
       flex: 4,
-      justifyContent: "space-between",
-      
-    },
-  
+      justifyContent: "space-between",  
+    },  
     cartItemCountContainer: {
       position: "absolute",
       backgroundColor: NewColors.buttonBuy_Add,
@@ -60,9 +61,7 @@ const stylesProductList = StyleSheet.create({
     cartItemCountText: {
       color: "#F5F5F5",  
     },
-
     productContainer: {
-
     },
   });
 

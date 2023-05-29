@@ -29,41 +29,31 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 8,
   },
-
   productImage: {
     width: cardWidth - 30,
     height: cardHeight - 100,
     marginBottom: 8,
   },
-
   footerCard: {
+    marginTop: 205,
+    position: "absolute",
     flexDirection: "row",
-    justifyContent: "space-between"
   },
-
   priceField: {
-    width: "40%",
+    width: cardWidth - 100,
     backgroundColor: Colors.background,
     borderRadius: 8,
     justifyContent: "center",
-    paddingLeft: 10,
+    alignItems: "center",
+   // marginLeft: "3.76%",
+    marginRight: 70
   },
-  
   price: {
   fontSize: 14,
   fontWeight: "bold",
   color: Colors.primary,
   },
-
   favoriteIcon: {
-   //position: "absolute",
-    // width: 24,
-    // height: 24,
-    //marginLeft: 60,
- 
-    // marginRight: -80,
-    alignSelf: 'flex-end',
-    //marginLeft: "auto"
   },
 });
 
