@@ -51,8 +51,11 @@ function HomeScreen({navigation}: Props): JSX.Element {
 
   return (
     <View style={stylesProductList.container}>
+      <View style={stylesProductList.root}>
         <Text style={stylesProductList.welcome}>Welcome</Text>
-        <View style={stylesProductList.header}>
+      </View>
+
+      <View style={stylesProductList.header}>
           
             <Text style={stylesProductList.userName}>Compass</Text>
            

@@ -44,6 +44,7 @@ export default function App() {
               name="HomeScreen" 
               component={HomeScreen} 
               options={{
+                headerShown: false,
                 headerLeft: ()=> null,
                 headerStyle: {backgroundColor: Colors.background},
                 title: 'HOME',

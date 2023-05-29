@@ -10,6 +10,10 @@ const stylesProductList = StyleSheet.create({
       textAlign: "left",
       justifyContent: "center",
     },
+    root: {
+      marginTop: 60,
+    },
+
     header: {
       display: "flex",
       flexDirection: "row",
