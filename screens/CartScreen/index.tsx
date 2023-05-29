@@ -45,11 +45,6 @@ function ShoppingCartScreen({ navigation, route }: Props) {
         dispatch(removeFromCart(index));
     };
 
-    // const renderSeparator = () => (
-    //     <View style={styles.separator} />
-    // );
-
-
     return (
         <View style={styles.root}>
 

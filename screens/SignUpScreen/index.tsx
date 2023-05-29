@@ -60,7 +60,7 @@ function SignUpScreen({navigation}: Props): JSX.Element {
         }
         
         if(enteredEmail.length !== 0 && enteredPassword.length !== 0 && enteredUser.length !== 0 && checkValue)
-            navigation.navigate("HomeScreen");
+            navigation.navigate("MainTabNavigator");
 
     }
 
