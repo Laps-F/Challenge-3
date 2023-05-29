@@ -120,6 +120,7 @@ function DetailProductScreen({route, navigation}: Props): JSX.Element {
                         style={styles.buttonAdd} 
                         color={NewColors.buttonBuy_Add}
                         load={isLoading} 
+                        disabled={numItems === 0}
                     />
                 </View>
             </View>
