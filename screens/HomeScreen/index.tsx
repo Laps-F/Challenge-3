@@ -56,10 +56,7 @@ function HomeScreen({navigation}: Props): JSX.Element {
       </View>
 
       <View style={stylesProductList.header}>
-          
-            <Text style={stylesProductList.userName}>Compass</Text>
-           
-                   
+          <Text style={stylesProductList.userName}>Compass</Text>
           <Pressable style={stylesProductList.shopButton} onPress={cartHandler}>
             <Ionicons name="cart-outline" size={40} color={NewColors.primary} />
             {cartItems.length >= 0 && (

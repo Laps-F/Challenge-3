@@ -37,8 +37,7 @@ const stylesProductList = StyleSheet.create({
     },
     shopButton: {
       position: "absolute",
-      alignSelf: "auto",
-      marginLeft: 357
+      marginLeft: 300
     },  
     scrollViewContainer: {
       flex: 4,
