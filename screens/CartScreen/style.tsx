@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
   totalPriceContainer: {
     display: "flex",
     left: "10%",
+    marginTop: 70,
   },
   totalText: {
     color: "white",
@@ -114,7 +115,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "red",
     justifyContent: "center",
     alignItems: "center",
-    top: -100,
+    top: -90,
     right: -145,
   },
   rectangle: {
@@ -127,7 +128,6 @@ export const styles = StyleSheet.create({
     position: "relative",
     height: 1,
     backgroundColor: '#656262',
-    //marginVertical: 10,
     width: '95%',
     marginBottom: 8,
   },
