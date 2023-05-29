@@ -32,7 +32,6 @@ const Card: React.FC<CardProps> = ({ product, onPress }) => {
         <View style={styles.priceField}>
           <Text style={styles.price}>{product.price}</Text>
         </View>
-        <View style={styles.favoriteIcon}>
       <TouchableOpacity onPress={handleFavoritePress}>
           <Icon
             name={productIsFavorited ? "heart" : "heart-outline"}
@@ -42,7 +41,7 @@ const Card: React.FC<CardProps> = ({ product, onPress }) => {
           />
           </TouchableOpacity>
         </View>
-      </View>
+      
     </TouchableOpacity>
   );
 };

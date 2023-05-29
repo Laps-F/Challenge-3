@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     marginHorizontal: 10,
     alignItems: "center",
-    position: "relative"
+    position: "relative",
   },
   title: {
     fontSize: 12,
@@ -36,32 +36,34 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
 
+  footerCard: {
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
+
   priceField: {
-    position: "absolute",
+    width: "40%",
     backgroundColor: Colors.background,
     borderRadius: 8,
-    alignItems: "flex-start",
-    textAlign: "left"
+    justifyContent: "center",
+    paddingLeft: 10,
   },
   
   price: {
-    position: "absolute",
-    fontSize: 14,
-    fontWeight: "bold",
-    marginLeft: "3.76%",
-    marginRight: "37.63%",
-    marginTop: "105%",
-    marginBottom: "3.98%",
-    color: Colors.primary,
+  fontSize: 14,
+  fontWeight: "bold",
+  color: Colors.primary,
   },
 
   favoriteIcon: {
-    // position: "relative",
+   //position: "absolute",
     // width: 24,
     // height: 24,
-    // marginLeft: 74,
+    //marginLeft: 60,
+ 
     // marginRight: -80,
     alignSelf: 'flex-end',
+    //marginLeft: "auto"
   },
 });
 
