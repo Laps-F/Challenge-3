@@ -24,7 +24,7 @@ function ShoppingCartScreen({ navigation, route }: Props) {
             setIsLoading(false);
 
             Alert.alert("Good!", "Product successfully purchased.");
-        }, 2000);
+        }, 3000);
     }
 
     const [totalPrice, setTotalPrice] = useState(0);
