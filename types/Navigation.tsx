@@ -8,6 +8,7 @@ export type UnauthenticatedStackParams = {
     HomeScreen: undefined;
     DetailProductScreen: ProductInterface;
     ShoppingCartScreen: ProductInterface[];
+    MainTabNavigator: undefined;
 }
 
 export type AuthenticatedStackParams<str1 extends keyof UnauthenticatedStackParams> = NativeStackScreenProps<UnauthenticatedStackParams, str1>;
