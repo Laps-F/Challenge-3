@@ -24,21 +24,12 @@ const stylesProductList = StyleSheet.create({
       marginLeft: 10
     },  
     userName: {
-      textDecorationLine: "underline",
       color: Colors.primary,
       fontSize: 20,
-      marginTop: 11,
+      marginTop: 10,
       marginLeft: 10,
-      borderBottomColor: "white"
-    },
-
-    userNameContainer: {
-      flexDirection: 'row',
-      alignItems: 'flex-end',
-    },
-    underline: {
-      height: 2,
-      backgroundColor: "white",
+      borderBottomColor: "white",
+      borderBottomWidth: 2
     },
     shopButton: {
       position: "absolute",
