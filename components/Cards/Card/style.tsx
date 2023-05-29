@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 10,
     fontWeight: "bold",
-    marginBottom: 8,
+    marginBottom: 5,
   },
   productImage: {
     width: cardWidth - 30,
@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     justifyContent: "center",
     alignItems: "center",
+    marginLeft: 5,
   },
     price: {
     fontSize: 14,
@@ -51,6 +52,7 @@ const styles = StyleSheet.create({
   },
   favoriteIcon: {
     alignSelf: "flex-start",
+    marginLeft: 25,
   },
 });
 
