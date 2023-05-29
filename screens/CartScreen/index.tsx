@@ -8,8 +8,6 @@ import { styles } from "./style";
 import { removeFromCart } from "../../redux/reducers";
 import React, { useEffect, useState } from "react";
 
-
-
 type Props = AuthenticatedStackParams<"ShoppingCartScreen">;
 
 function ShoppingCartScreen({ navigation, route }: Props) {
@@ -17,11 +15,13 @@ function ShoppingCartScreen({ navigation, route }: Props) {
     const cartItems = useSelector((state: { cart: CartState }) => state.cart.cartItems);
     const dispatch = useDispatch();
     const [isLoading, setIsLoading] = useState<boolean>(false);
-    function Test() {
+
+    function buyButtonHandler() {
         setIsLoading(true);
 
         setTimeout(() => {
             setIsLoading(false);
+            clearCart();
 
             Alert.alert("Good!", "Product successfully purchased.");
         }, 3000);
@@ -32,6 +32,10 @@ function ShoppingCartScreen({ navigation, route }: Props) {
     useEffect(() => {
         calculateTotalPrice();
     }, [cartItems]);
+
+    const clearCart = () => {
+        cartItems.map(() => {dispatch(removeFromCart(0))});
+    }
 
     const calculateTotalPrice = () => {
         let total = 0;
@@ -92,7 +96,7 @@ function ShoppingCartScreen({ navigation, route }: Props) {
             <View style={styles.buttonContainer}>
                 <MyButton
                     title="BUY"
-                    onPress={Test}
+                    onPress={buyButtonHandler}
                     style={styles.button}
                     color={NewColors.buttonBuy_Add}
                     load={isLoading}
