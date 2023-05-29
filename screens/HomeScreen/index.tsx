@@ -51,8 +51,8 @@ function HomeScreen({navigation}: Props): JSX.Element {
 
   return (
     <View style={stylesProductList.container}>
-      <View style={stylesProductList.header}>
         <Text style={stylesProductList.welcome}>Welcome</Text>
+        <View style={stylesProductList.header}>
         <Text style={stylesProductList.userName}>Compass</Text>
         <Pressable style={stylesProductList.shopButton} onPress={cartHandler}>
           <Ionicons name="cart-outline" size={40} color={NewColors.primary} />

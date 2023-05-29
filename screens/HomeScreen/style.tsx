@@ -3,7 +3,9 @@ import { Colors, NewColors } from "../../constants/styles";
 import { getModeForUsageLocation } from "typescript";
 
 const stylesProductList = StyleSheet.create({
-    container: {
+    
+  
+   container: {
       backgroundColor: Colors.background,
       flex: 1,
       textAlign: "left",
@@ -12,21 +14,32 @@ const stylesProductList = StyleSheet.create({
   
     header: {
       display: "flex",
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignContent: "center",
+      alignItems: "center",
+      marginBottom: 30
+      
     },
   
     welcome: {
-      color: Colors.inputPlaceholder
+      color: Colors.inputPlaceholder,
+      fontSize: 14,
+      marginLeft: 10
     },
   
     userName: {
       textDecorationLine: "underline",
-      color: Colors.primary
+      color: Colors.primary,
+      fontSize: 20,
+      marginTop: 15,
+      marginLeft: 10,
     },
 
     shopButton: {
-      position: "relative",
-      alignSelf: "flex-end",
-      marginRight: 25
+      position: "absolute",
+      alignSelf: "auto",
+      marginLeft: 357
     },
   
     scrollViewContainer: {
@@ -35,19 +48,6 @@ const stylesProductList = StyleSheet.create({
       
     },
   
-    productContainer: {
-      //width: "100%",
-      //paddingHorizontal: 10,
-      //marginBottom: 10,
-      //flexWrap: "wrap"
-    },
-    cardProduct: {
-      width: "48%",
-      height: 150,
-      backgroundColor: "#eee",
-      borderRadius: 5,
-      marginBottom: 10,
-    },
     cartItemCountContainer: {
       position: "absolute",
       backgroundColor: NewColors.buttonBuy_Add,
@@ -59,6 +59,10 @@ const stylesProductList = StyleSheet.create({
     },
     cartItemCountText: {
       color: "#F5F5F5",  
+    },
+
+    productContainer: {
+
     },
   });
 
