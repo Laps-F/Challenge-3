@@ -36,8 +36,8 @@ const stylesProductList = StyleSheet.create({
       borderBottomWidth: 2
     },
     shopButton: {
-      position: "absolute",
-      marginLeft: 300
+      alignSelf: "flex-end",
+      marginRight: 20,
     },  
     scrollViewContainer: {
       flex: 4,
@@ -57,6 +57,10 @@ const stylesProductList = StyleSheet.create({
     },
     productContainer: {
     },
+    loading: {
+      flex: 1,
+      justifyContent: "center",
+    }
   });
 
   export default stylesProductList;

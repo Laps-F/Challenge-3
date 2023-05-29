@@ -79,7 +79,7 @@ export const styles = StyleSheet.create({
     imageContainer: {
         alignItems: 'center',
         width: "100%",
-        height: "80%",
+        height: "70%",
     },
 
     image: {
@@ -94,6 +94,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignSelf: "flex-start",
         marginVertical: 10,
+        marginBottom: -10,
     },
 
     count: {
@@ -105,6 +106,7 @@ export const styles = StyleSheet.create({
     description: {
         marginTop: -100,
         marginHorizontal: 20,
+        maxHeight: "20%"
     },
 
     shopButton: {
