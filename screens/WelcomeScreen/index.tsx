@@ -34,7 +34,7 @@ function WelcomeScreen({navigation}: Props): JSX.Element {
             setPasswordError(true);
 
         if(enteredEmail.length !== 0 && enteredPassword.length !== 0){
-           navigation.navigate("HomeScreen");
+           navigation.navigate("MainTabNavigator");
         }
     }
 

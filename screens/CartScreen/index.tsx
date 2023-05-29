@@ -24,7 +24,7 @@ function ShoppingCartScreen({ navigation, route }: Props) {
             setIsLoading(false);
 
             Alert.alert("Good!", "Product successfully purchased.");
-        }, 2000);
+        }, 3000);
     }
 
     const [totalPrice, setTotalPrice] = useState(0);
@@ -44,11 +44,6 @@ function ShoppingCartScreen({ navigation, route }: Props) {
     const handleRemoveItem = (index: number) => {
         dispatch(removeFromCart(index));
     };
-
-    // const renderSeparator = () => (
-    //     <View style={styles.separator} />
-    // );
-
 
     return (
         <View style={styles.root}>
