@@ -11,7 +11,7 @@ const stylesProductList = StyleSheet.create({
       justifyContent: "center",
     },
     root: {
-      marginTop: 10,
+      marginTop: 30,
     },
 
     header: {
