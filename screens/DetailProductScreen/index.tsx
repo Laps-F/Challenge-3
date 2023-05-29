@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { useSelector} from "react-redux";
-import { Text, View, Image, Alert, Pressable } from "react-native";
+import { Text, View, Image, Alert, Pressable, ScrollView } from "react-native";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 import MyButton from "../../components/MyButton";
@@ -109,9 +109,9 @@ function DetailProductScreen({route, navigation}: Props): JSX.Element {
                     </View>
                 </View>
                 
-                <View style={styles.description}>
+                <ScrollView style={styles.description}>
                     <Text style={{fontSize: 11}}>{product.description}</Text>
-                </View>
+                </ScrollView>
 
                 <View style={styles.buttonContainer}>
                     <MyButton 
