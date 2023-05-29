@@ -22,46 +22,38 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     marginHorizontal: 10,
     alignItems: "center",
-    position: "relative"
+    position: "relative",
   },
   title: {
     fontSize: 12,
     fontWeight: "bold",
     marginBottom: 8,
   },
-
   productImage: {
     width: cardWidth - 30,
     height: cardHeight - 100,
     marginBottom: 8,
   },
-
-  priceField: {
+  footerCard: {
+    marginTop: 205,
     position: "absolute",
+    flexDirection: "row",
+  },
+  priceField: {
+    width: cardWidth - 100,
     backgroundColor: Colors.background,
     borderRadius: 8,
-    alignItems: "flex-start",
-    textAlign: "left"
+    justifyContent: "center",
+    alignItems: "center",
+   // marginLeft: "3.76%",
+    marginRight: 70
   },
-  
   price: {
-    position: "absolute",
-    fontSize: 14,
-    fontWeight: "bold",
-    marginLeft: "3.76%",
-    marginRight: "37.63%",
-    marginTop: "105%",
-    marginBottom: "3.98%",
-    color: Colors.primary,
+  fontSize: 14,
+  fontWeight: "bold",
+  color: Colors.primary,
   },
-
   favoriteIcon: {
-    // position: "relative",
-    // width: 24,
-    // height: 24,
-    // marginLeft: 74,
-    // marginRight: -80,
-    alignSelf: 'flex-end',
   },
 });
 
