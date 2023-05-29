@@ -42,7 +42,7 @@ const Card: React.FC<CardProps> = ({ product, onPress }) => {
                 />
             </TouchableOpacity>
           </View>          
-          </View>
+        </View>
       </View>
     </TouchableOpacity>
   );
