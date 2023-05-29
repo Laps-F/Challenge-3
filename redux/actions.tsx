@@ -12,3 +12,9 @@ export const addToCart = (product: ProductInterface): AddToCartAction => {
         payload: product,
     };
 };
+export const removeFromCart = (productId: number) => {
+    return {
+        type: "REMOVE_FROM_CART",
+        payload: productId,
+    };
+};

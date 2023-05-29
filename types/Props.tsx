@@ -20,4 +20,5 @@ export type ButtonProps = {
     style?: ViewStyle,
     color?: string,
     load?: boolean,
+    disabled?: boolean,
 }
