@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from "react-native";
-import { Colors } from "../../../constants/styles";
+import { Colors, NewColors } from "../../../constants/styles";
 
 
 const { width, height } = Dimensions.get("window");
@@ -16,52 +16,43 @@ const styles = StyleSheet.create({
   cardProduct: {
     width: cardWidth,
     height: cardHeight,
-    padding: 12,
+    padding: 6,
     backgroundColor: "#ffffff",
     borderRadius: 8,
     marginBottom: 16,
     marginHorizontal: 10,
     alignItems: "center",
-    position: "relative"
+    position: "relative",
   },
   title: {
-    fontSize: 12,
+    fontSize: 10,
     fontWeight: "bold",
-    marginBottom: 8,
+    marginBottom: 5,
   },
-
   productImage: {
     width: cardWidth - 30,
     height: cardHeight - 100,
     marginBottom: 8,
   },
-
-  priceField: {
-    position: "absolute",
-    backgroundColor: Colors.background,
-    borderRadius: 8,
-    alignItems: "flex-start",
-    textAlign: "left"
+  footerCard: {
+    flexDirection: "row",
   },
-  
-  price: {
-    position: "absolute",
+  priceField: {
+    width: cardWidth - 80,
+    backgroundColor: NewColors.background,
+    borderRadius: 8,
+    justifyContent: "center",
+    alignItems: "center",
+    marginLeft: 5,
+  },
+    price: {
     fontSize: 14,
     fontWeight: "bold",
-    marginLeft: "3.76%",
-    marginRight: "37.63%",
-    marginTop: "105%",
-    marginBottom: "3.98%",
     color: Colors.primary,
   },
-
   favoriteIcon: {
-    // position: "relative",
-    // width: 24,
-    // height: 24,
-    // marginLeft: 74,
-    // marginRight: -80,
-    alignSelf: 'flex-end',
+    alignSelf: "flex-start",
+    marginLeft: 25,
   },
 });
 
