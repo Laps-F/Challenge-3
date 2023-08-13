@@ -5,7 +5,7 @@
 </p>
 
 # Project Description
-
+The third Challenge of Compass, where the goal is to make an React Native App, with TypeScript, to simulate an shop app, that allow us to login/signUp(or signIn) to the products screen and 'buy' the items.
 
 # :hammer: Functionalities
 
